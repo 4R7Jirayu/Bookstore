@@ -22,11 +22,11 @@ Partial Class borrowform
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.txtMemb = New System.Windows.Forms.TextBox()
+        Me.txtBookID = New System.Windows.Forms.TextBox()
+        Me.btnAdd2L = New System.Windows.Forms.Button()
+        Me.btnConf = New System.Windows.Forms.Button()
+        Me.DataGVList = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -34,53 +34,55 @@ Partial Class borrowform
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.LbShowTime = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.LlTot = New System.Windows.Forms.Label()
+        CType(Me.DataGVList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'TextBox1
+        'txtMemb
         '
-        Me.TextBox1.Location = New System.Drawing.Point(109, 35)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 0
+        Me.txtMemb.Location = New System.Drawing.Point(109, 35)
+        Me.txtMemb.Name = "txtMemb"
+        Me.txtMemb.Size = New System.Drawing.Size(100, 20)
+        Me.txtMemb.TabIndex = 0
         '
-        'TextBox2
+        'txtBookID
         '
-        Me.TextBox2.Location = New System.Drawing.Point(292, 33)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 1
+        Me.txtBookID.Location = New System.Drawing.Point(292, 33)
+        Me.txtBookID.Name = "txtBookID"
+        Me.txtBookID.Size = New System.Drawing.Size(100, 20)
+        Me.txtBookID.TabIndex = 1
         '
-        'Button1
+        'btnAdd2L
         '
-        Me.Button1.Location = New System.Drawing.Point(492, 31)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "เพิ่ม"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnAdd2L.Location = New System.Drawing.Point(492, 31)
+        Me.btnAdd2L.Name = "btnAdd2L"
+        Me.btnAdd2L.Size = New System.Drawing.Size(75, 23)
+        Me.btnAdd2L.TabIndex = 2
+        Me.btnAdd2L.Text = "เพิ่ม"
+        Me.btnAdd2L.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnConf
         '
-        Me.Button2.Location = New System.Drawing.Point(515, 426)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "ยืนยันการยืม"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnConf.Location = New System.Drawing.Point(515, 426)
+        Me.btnConf.Name = "btnConf"
+        Me.btnConf.Size = New System.Drawing.Size(103, 23)
+        Me.btnConf.TabIndex = 3
+        Me.btnConf.Text = "ยืนยันการยืม"
+        Me.btnConf.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'DataGVList
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5})
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 84)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(640, 336)
-        Me.DataGridView1.TabIndex = 4
+        Me.DataGVList.AllowUserToAddRows = False
+        Me.DataGVList.AllowUserToDeleteRows = False
+        Me.DataGVList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGVList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5})
+        Me.DataGVList.Location = New System.Drawing.Point(12, 84)
+        Me.DataGVList.Name = "DataGVList"
+        Me.DataGVList.ReadOnly = True
+        Me.DataGVList.Size = New System.Drawing.Size(640, 336)
+        Me.DataGVList.TabIndex = 4
         '
         'Column1
         '
@@ -130,41 +132,60 @@ Partial Class borrowform
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "ไอดีหนังสือ"
         '
-        'Label3
+        'LbShowTime
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(413, 35)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(43, 13)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "เวลายืม"
+        Me.LbShowTime.AutoSize = True
+        Me.LbShowTime.Location = New System.Drawing.Point(413, 35)
+        Me.LbShowTime.Name = "LbShowTime"
+        Me.LbShowTime.Size = New System.Drawing.Size(43, 13)
+        Me.LbShowTime.TabIndex = 7
+        Me.LbShowTime.Text = "เวลายืม"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(12, 439)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(108, 13)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "รวมราคายืมทั้งหมด  : "
+        '
+        'LlTot
+        '
+        Me.LlTot.AutoSize = True
+        Me.LlTot.Location = New System.Drawing.Point(126, 439)
+        Me.LlTot.Name = "LlTot"
+        Me.LlTot.Size = New System.Drawing.Size(0, 13)
+        Me.LlTot.TabIndex = 9
         '
         'borrowform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(664, 461)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.LlTot)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.LbShowTime)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.DataGVList)
+        Me.Controls.Add(Me.btnConf)
+        Me.Controls.Add(Me.btnAdd2L)
+        Me.Controls.Add(Me.txtBookID)
+        Me.Controls.Add(Me.txtMemb)
         Me.Name = "borrowform"
         Me.Text = "ยืม"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGVList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents txtMemb As TextBox
+    Friend WithEvents txtBookID As TextBox
+    Friend WithEvents btnAdd2L As Button
+    Friend WithEvents btnConf As Button
+    Friend WithEvents DataGVList As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
@@ -172,5 +193,7 @@ Partial Class borrowform
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents LbShowTime As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents LlTot As Label
 End Class

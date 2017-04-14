@@ -1,6 +1,5 @@
 ﻿Option Explicit On
 Option Strict On
-Imports System.Data
 Imports System.Data.SqlClient
 'Imports CrystalDecisions.CrystalReports.Engine
 Public Class conndb
@@ -8,7 +7,29 @@ Public Class conndb
     Private ObjConn As New SqlConnection(StrConn)
     Private ds As DataSet
     Private da As SqlDataAdapter
-    Public strdel As String
+    Private dr As SqlDataReader
+    Private str As String
+    Dim cmd As New SqlCommand(str, ObjConn)
+
+    Public Property mystr() As String
+        Get
+            Return str
+        End Get
+        Set(value As String)
+            str = value
+        End Set
+    End Property
+
+
+    Public Property mydr() As SqlDataReader
+        Get
+            Return dr
+        End Get
+        Set(value As SqlDataReader)
+            value = cmd.ExecuteReader()
+            dr = value
+        End Set
+    End Property
     Public Property myStrconn() As String
         Get
             Return StrConn

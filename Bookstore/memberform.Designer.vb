@@ -28,12 +28,10 @@ Partial Class memberform
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtTel = New System.Windows.Forms.TextBox()
         Me.txtLname = New System.Windows.Forms.TextBox()
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.txtSNN = New System.Windows.Forms.TextBox()
-        Me.txtMemId = New System.Windows.Forms.TextBox()
         Me.btnInsertMem = New System.Windows.Forms.Button()
         Me.txtInSearch = New System.Windows.Forms.TextBox()
         Me.btnSearchMem = New System.Windows.Forms.Button()
@@ -42,7 +40,7 @@ Partial Class memberform
         '
         'txtAds
         '
-        Me.txtAds.Location = New System.Drawing.Point(130, 226)
+        Me.txtAds.Location = New System.Drawing.Point(137, 221)
         Me.txtAds.Name = "txtAds"
         Me.txtAds.Size = New System.Drawing.Size(186, 96)
         Me.txtAds.TabIndex = 50
@@ -51,7 +49,7 @@ Partial Class memberform
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(41, 229)
+        Me.Label6.Location = New System.Drawing.Point(48, 224)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(27, 13)
         Me.Label6.TabIndex = 49
@@ -60,7 +58,7 @@ Partial Class memberform
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(41, 203)
+        Me.Label5.Location = New System.Drawing.Point(48, 198)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(31, 13)
         Me.Label5.TabIndex = 48
@@ -69,7 +67,7 @@ Partial Class memberform
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(41, 177)
+        Me.Label4.Location = New System.Drawing.Point(48, 172)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(46, 13)
         Me.Label4.TabIndex = 47
@@ -78,7 +76,7 @@ Partial Class memberform
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(41, 151)
+        Me.Label3.Location = New System.Drawing.Point(48, 146)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(20, 13)
         Me.Label3.TabIndex = 46
@@ -87,59 +85,43 @@ Partial Class memberform
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(41, 125)
+        Me.Label2.Location = New System.Drawing.Point(48, 120)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(66, 13)
         Me.Label2.TabIndex = 45
         Me.Label2.Text = "เลขประจำตัว"
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(41, 99)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(58, 13)
-        Me.Label1.TabIndex = 44
-        Me.Label1.Text = "รหัสสมาชิก"
-        '
         'TxtTel
         '
-        Me.TxtTel.Location = New System.Drawing.Point(130, 196)
+        Me.TxtTel.Location = New System.Drawing.Point(137, 191)
         Me.TxtTel.Name = "TxtTel"
         Me.TxtTel.Size = New System.Drawing.Size(186, 20)
         Me.TxtTel.TabIndex = 43
         '
         'txtLname
         '
-        Me.txtLname.Location = New System.Drawing.Point(130, 170)
+        Me.txtLname.Location = New System.Drawing.Point(137, 165)
         Me.txtLname.Name = "txtLname"
         Me.txtLname.Size = New System.Drawing.Size(186, 20)
         Me.txtLname.TabIndex = 42
         '
         'txtName
         '
-        Me.txtName.Location = New System.Drawing.Point(130, 144)
+        Me.txtName.Location = New System.Drawing.Point(137, 139)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(186, 20)
         Me.txtName.TabIndex = 41
         '
         'txtSNN
         '
-        Me.txtSNN.Location = New System.Drawing.Point(130, 118)
+        Me.txtSNN.Location = New System.Drawing.Point(137, 113)
         Me.txtSNN.Name = "txtSNN"
         Me.txtSNN.Size = New System.Drawing.Size(186, 20)
         Me.txtSNN.TabIndex = 40
         '
-        'txtMemId
-        '
-        Me.txtMemId.Location = New System.Drawing.Point(130, 92)
-        Me.txtMemId.Name = "txtMemId"
-        Me.txtMemId.Size = New System.Drawing.Size(186, 20)
-        Me.txtMemId.TabIndex = 39
-        '
         'btnInsertMem
         '
-        Me.btnInsertMem.Location = New System.Drawing.Point(61, 371)
+        Me.btnInsertMem.Location = New System.Drawing.Point(68, 366)
         Me.btnInsertMem.Name = "btnInsertMem"
         Me.btnInsertMem.Size = New System.Drawing.Size(85, 23)
         Me.btnInsertMem.TabIndex = 38
@@ -164,7 +146,7 @@ Partial Class memberform
         '
         'btnUpdateMem
         '
-        Me.btnUpdateMem.Location = New System.Drawing.Point(194, 371)
+        Me.btnUpdateMem.Location = New System.Drawing.Point(201, 366)
         Me.btnUpdateMem.Name = "btnUpdateMem"
         Me.btnUpdateMem.Size = New System.Drawing.Size(85, 23)
         Me.btnUpdateMem.TabIndex = 53
@@ -185,12 +167,10 @@ Partial Class memberform
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TxtTel)
         Me.Controls.Add(Me.txtLname)
         Me.Controls.Add(Me.txtName)
         Me.Controls.Add(Me.txtSNN)
-        Me.Controls.Add(Me.txtMemId)
         Me.Controls.Add(Me.btnInsertMem)
         Me.Name = "memberform"
         Me.Text = "ข้อมูลสมาชิก"
@@ -205,12 +185,10 @@ Partial Class memberform
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
     Friend WithEvents TxtTel As TextBox
     Friend WithEvents txtLname As TextBox
     Friend WithEvents txtName As TextBox
     Friend WithEvents txtSNN As TextBox
-    Friend WithEvents txtMemId As TextBox
     Friend WithEvents btnInsertMem As Button
     Friend WithEvents txtInSearch As TextBox
     Friend WithEvents btnSearchMem As Button

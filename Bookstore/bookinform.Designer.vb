@@ -44,7 +44,17 @@ Partial Class bookinform
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.btnBUpdate = New System.Windows.Forms.Button()
+        Me.TabControlBShow = New System.Windows.Forms.TabControl()
+        Me.TabPageShow = New System.Windows.Forms.TabPage()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.TabPageInsert = New System.Windows.Forms.TabPage()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.comboBtype = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
+        Me.TabControlBShow.SuspendLayout()
+        Me.TabPageShow.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPageInsert.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -83,7 +93,7 @@ Partial Class bookinform
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(122, 118)
+        Me.Label2.Location = New System.Drawing.Point(94, 22)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(0, 13)
         Me.Label2.TabIndex = 4
@@ -102,7 +112,7 @@ Partial Class bookinform
         '
         'btnBInsert
         '
-        Me.btnBInsert.Location = New System.Drawing.Point(156, 345)
+        Me.btnBInsert.Location = New System.Drawing.Point(128, 249)
         Me.btnBInsert.Name = "btnBInsert"
         Me.btnBInsert.Size = New System.Drawing.Size(75, 23)
         Me.btnBInsert.TabIndex = 6
@@ -111,49 +121,49 @@ Partial Class bookinform
         '
         'txtBId
         '
-        Me.txtBId.Location = New System.Drawing.Point(225, 111)
+        Me.txtBId.Location = New System.Drawing.Point(197, 15)
         Me.txtBId.Name = "txtBId"
         Me.txtBId.Size = New System.Drawing.Size(147, 20)
         Me.txtBId.TabIndex = 7
         '
         'txtBName
         '
-        Me.txtBName.Location = New System.Drawing.Point(225, 137)
+        Me.txtBName.Location = New System.Drawing.Point(197, 41)
         Me.txtBName.Name = "txtBName"
         Me.txtBName.Size = New System.Drawing.Size(147, 20)
         Me.txtBName.TabIndex = 8
         '
         'txtBwrt
         '
-        Me.txtBwrt.Location = New System.Drawing.Point(225, 163)
+        Me.txtBwrt.Location = New System.Drawing.Point(197, 94)
         Me.txtBwrt.Name = "txtBwrt"
         Me.txtBwrt.Size = New System.Drawing.Size(147, 20)
         Me.txtBwrt.TabIndex = 9
         '
         'txtBBrlP
         '
-        Me.txtBBrlP.Location = New System.Drawing.Point(225, 189)
+        Me.txtBBrlP.Location = New System.Drawing.Point(197, 120)
         Me.txtBBrlP.Name = "txtBBrlP"
         Me.txtBBrlP.Size = New System.Drawing.Size(147, 20)
         Me.txtBBrlP.TabIndex = 10
         '
         'txtBCvP
         '
-        Me.txtBCvP.Location = New System.Drawing.Point(225, 215)
+        Me.txtBCvP.Location = New System.Drawing.Point(197, 146)
         Me.txtBCvP.Name = "txtBCvP"
         Me.txtBCvP.Size = New System.Drawing.Size(147, 20)
         Me.txtBCvP.TabIndex = 11
         '
         'txtBLm
         '
-        Me.txtBLm.Location = New System.Drawing.Point(225, 241)
+        Me.txtBLm.Location = New System.Drawing.Point(197, 172)
         Me.txtBLm.Name = "txtBLm"
         Me.txtBLm.Size = New System.Drawing.Size(147, 20)
         Me.txtBLm.TabIndex = 12
         '
         'txtBstt
         '
-        Me.txtBstt.Location = New System.Drawing.Point(225, 267)
+        Me.txtBstt.Location = New System.Drawing.Point(197, 198)
         Me.txtBstt.Name = "txtBstt"
         Me.txtBstt.Size = New System.Drawing.Size(147, 20)
         Me.txtBstt.TabIndex = 13
@@ -161,7 +171,7 @@ Partial Class bookinform
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(128, 114)
+        Me.Label3.Location = New System.Drawing.Point(100, 18)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(58, 13)
         Me.Label3.TabIndex = 14
@@ -170,7 +180,7 @@ Partial Class bookinform
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(128, 140)
+        Me.Label4.Location = New System.Drawing.Point(100, 44)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(52, 13)
         Me.Label4.TabIndex = 15
@@ -179,7 +189,7 @@ Partial Class bookinform
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(128, 166)
+        Me.Label5.Location = New System.Drawing.Point(100, 97)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(40, 13)
         Me.Label5.TabIndex = 16
@@ -188,7 +198,7 @@ Partial Class bookinform
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(128, 192)
+        Me.Label6.Location = New System.Drawing.Point(100, 123)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(44, 13)
         Me.Label6.TabIndex = 17
@@ -197,7 +207,7 @@ Partial Class bookinform
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(128, 218)
+        Me.Label7.Location = New System.Drawing.Point(100, 149)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(44, 13)
         Me.Label7.TabIndex = 18
@@ -206,7 +216,7 @@ Partial Class bookinform
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(128, 244)
+        Me.Label8.Location = New System.Drawing.Point(100, 175)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(34, 13)
         Me.Label8.TabIndex = 19
@@ -215,7 +225,7 @@ Partial Class bookinform
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(128, 270)
+        Me.Label9.Location = New System.Drawing.Point(100, 201)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(38, 13)
         Me.Label9.TabIndex = 20
@@ -223,41 +233,105 @@ Partial Class bookinform
         '
         'btnBUpdate
         '
-        Me.btnBUpdate.Location = New System.Drawing.Point(277, 345)
+        Me.btnBUpdate.Location = New System.Drawing.Point(249, 249)
         Me.btnBUpdate.Name = "btnBUpdate"
         Me.btnBUpdate.Size = New System.Drawing.Size(75, 23)
         Me.btnBUpdate.TabIndex = 21
         Me.btnBUpdate.Text = "แก้ไข"
         Me.btnBUpdate.UseVisualStyleBackColor = True
         '
+        'TabControlBShow
+        '
+        Me.TabControlBShow.Controls.Add(Me.TabPageShow)
+        Me.TabControlBShow.Controls.Add(Me.TabPageInsert)
+        Me.TabControlBShow.Location = New System.Drawing.Point(12, 104)
+        Me.TabControlBShow.Name = "TabControlBShow"
+        Me.TabControlBShow.SelectedIndex = 0
+        Me.TabControlBShow.Size = New System.Drawing.Size(496, 340)
+        Me.TabControlBShow.TabIndex = 23
+        '
+        'TabPageShow
+        '
+        Me.TabPageShow.Controls.Add(Me.DataGridView1)
+        Me.TabPageShow.Location = New System.Drawing.Point(4, 22)
+        Me.TabPageShow.Name = "TabPageShow"
+        Me.TabPageShow.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageShow.Size = New System.Drawing.Size(488, 314)
+        Me.TabPageShow.TabIndex = 0
+        Me.TabPageShow.Text = "หนังสือ"
+        Me.TabPageShow.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(3, 3)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(482, 311)
+        Me.DataGridView1.TabIndex = 0
+        '
+        'TabPageInsert
+        '
+        Me.TabPageInsert.Controls.Add(Me.comboBtype)
+        Me.TabPageInsert.Controls.Add(Me.Label10)
+        Me.TabPageInsert.Controls.Add(Me.txtBId)
+        Me.TabPageInsert.Controls.Add(Me.btnBUpdate)
+        Me.TabPageInsert.Controls.Add(Me.Label2)
+        Me.TabPageInsert.Controls.Add(Me.Label9)
+        Me.TabPageInsert.Controls.Add(Me.btnBInsert)
+        Me.TabPageInsert.Controls.Add(Me.Label8)
+        Me.TabPageInsert.Controls.Add(Me.txtBName)
+        Me.TabPageInsert.Controls.Add(Me.Label7)
+        Me.TabPageInsert.Controls.Add(Me.txtBwrt)
+        Me.TabPageInsert.Controls.Add(Me.Label6)
+        Me.TabPageInsert.Controls.Add(Me.txtBBrlP)
+        Me.TabPageInsert.Controls.Add(Me.Label5)
+        Me.TabPageInsert.Controls.Add(Me.txtBCvP)
+        Me.TabPageInsert.Controls.Add(Me.Label4)
+        Me.TabPageInsert.Controls.Add(Me.txtBLm)
+        Me.TabPageInsert.Controls.Add(Me.Label3)
+        Me.TabPageInsert.Controls.Add(Me.txtBstt)
+        Me.TabPageInsert.Location = New System.Drawing.Point(4, 22)
+        Me.TabPageInsert.Name = "TabPageInsert"
+        Me.TabPageInsert.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageInsert.Size = New System.Drawing.Size(488, 314)
+        Me.TabPageInsert.TabIndex = 1
+        Me.TabPageInsert.Text = "เพิ่ม"
+        Me.TabPageInsert.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(100, 70)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(44, 13)
+        Me.Label10.TabIndex = 23
+        Me.Label10.Text = "ประเภท"
+        '
+        'comboBtype
+        '
+        Me.comboBtype.FormattingEnabled = True
+        Me.comboBtype.Location = New System.Drawing.Point(197, 67)
+        Me.comboBtype.Name = "comboBtype"
+        Me.comboBtype.Size = New System.Drawing.Size(147, 21)
+        Me.comboBtype.TabIndex = 24
+        '
         'bookinform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(510, 456)
-        Me.Controls.Add(Me.btnBUpdate)
-        Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txtBstt)
-        Me.Controls.Add(Me.txtBLm)
-        Me.Controls.Add(Me.txtBCvP)
-        Me.Controls.Add(Me.txtBBrlP)
-        Me.Controls.Add(Me.txtBwrt)
-        Me.Controls.Add(Me.txtBName)
-        Me.Controls.Add(Me.txtBId)
-        Me.Controls.Add(Me.btnBInsert)
+        Me.ClientSize = New System.Drawing.Size(520, 456)
+        Me.Controls.Add(Me.TabControlBShow)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "bookinform"
         Me.Text = "bookinform"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.TabControlBShow.ResumeLayout(False)
+        Me.TabPageShow.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPageInsert.ResumeLayout(False)
+        Me.TabPageInsert.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -285,4 +359,10 @@ Partial Class bookinform
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents btnBUpdate As Button
+    Friend WithEvents TabControlBShow As TabControl
+    Friend WithEvents TabPageShow As TabPage
+    Friend WithEvents TabPageInsert As TabPage
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Label10 As Label
+    Friend WithEvents comboBtype As ComboBox
 End Class
