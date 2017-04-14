@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class bookinform
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class bookinform
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnBSearch = New System.Windows.Forms.Button()
@@ -48,8 +48,8 @@ Partial Class bookinform
         Me.TabPageShow = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPageInsert = New System.Windows.Forms.TabPage()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.comboBtype = New System.Windows.Forms.ComboBox()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.GroupBox1.SuspendLayout()
         Me.TabControlBShow.SuspendLayout()
         Me.TabPageShow.SuspendLayout()
@@ -93,7 +93,7 @@ Partial Class bookinform
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(94, 22)
+        Me.Label2.Location = New System.Drawing.Point(74, 22)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(0, 13)
         Me.Label2.TabIndex = 4
@@ -171,7 +171,7 @@ Partial Class bookinform
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(100, 18)
+        Me.Label3.Location = New System.Drawing.Point(80, 18)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(58, 13)
         Me.Label3.TabIndex = 14
@@ -180,7 +180,7 @@ Partial Class bookinform
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(100, 44)
+        Me.Label4.Location = New System.Drawing.Point(80, 44)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(52, 13)
         Me.Label4.TabIndex = 15
@@ -189,7 +189,7 @@ Partial Class bookinform
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(100, 97)
+        Me.Label5.Location = New System.Drawing.Point(80, 97)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(40, 13)
         Me.Label5.TabIndex = 16
@@ -198,7 +198,7 @@ Partial Class bookinform
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(100, 123)
+        Me.Label6.Location = New System.Drawing.Point(80, 123)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(44, 13)
         Me.Label6.TabIndex = 17
@@ -207,7 +207,7 @@ Partial Class bookinform
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(100, 149)
+        Me.Label7.Location = New System.Drawing.Point(80, 149)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(44, 13)
         Me.Label7.TabIndex = 18
@@ -216,7 +216,7 @@ Partial Class bookinform
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(100, 175)
+        Me.Label8.Location = New System.Drawing.Point(80, 175)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(34, 13)
         Me.Label8.TabIndex = 19
@@ -225,7 +225,7 @@ Partial Class bookinform
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(100, 201)
+        Me.Label9.Location = New System.Drawing.Point(80, 201)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(38, 13)
         Me.Label9.TabIndex = 20
@@ -271,8 +271,8 @@ Partial Class bookinform
         '
         'TabPageInsert
         '
+        Me.TabPageInsert.Controls.Add(Me.LinkLabel1)
         Me.TabPageInsert.Controls.Add(Me.comboBtype)
-        Me.TabPageInsert.Controls.Add(Me.Label10)
         Me.TabPageInsert.Controls.Add(Me.txtBId)
         Me.TabPageInsert.Controls.Add(Me.btnBUpdate)
         Me.TabPageInsert.Controls.Add(Me.Label2)
@@ -298,15 +298,6 @@ Partial Class bookinform
         Me.TabPageInsert.Text = "เพิ่ม"
         Me.TabPageInsert.UseVisualStyleBackColor = True
         '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(100, 70)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(44, 13)
-        Me.Label10.TabIndex = 23
-        Me.Label10.Text = "ประเภท"
-        '
         'comboBtype
         '
         Me.comboBtype.FormattingEnabled = True
@@ -314,6 +305,17 @@ Partial Class bookinform
         Me.comboBtype.Name = "comboBtype"
         Me.comboBtype.Size = New System.Drawing.Size(147, 21)
         Me.comboBtype.TabIndex = 24
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.LinkColor = System.Drawing.Color.Black
+        Me.LinkLabel1.Location = New System.Drawing.Point(80, 70)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(96, 13)
+        Me.LinkLabel1.TabIndex = 26
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "เพิ่มประเภทหนังสือ"
         '
         'bookinform
         '
@@ -363,6 +365,6 @@ Partial Class bookinform
     Friend WithEvents TabPageShow As TabPage
     Friend WithEvents TabPageInsert As TabPage
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Label10 As Label
     Friend WithEvents comboBtype As ComboBox
+    Friend WithEvents LinkLabel1 As LinkLabel
 End Class

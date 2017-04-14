@@ -116,6 +116,12 @@
     <Compile Include="returnfrom.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="typebookform.Designer.vb">
+      <DependentUpon>typebookform.vb</DependentUpon>
+    </Compile>
+    <Compile Include="typebookform.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="bookinform.resx">
@@ -138,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="returnfrom.resx">
       <DependentUpon>returnfrom.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="typebookform.resx">
+      <DependentUpon>typebookform.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

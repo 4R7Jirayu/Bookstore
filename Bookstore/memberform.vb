@@ -1,15 +1,15 @@
 ﻿Public Class memberform
     Dim cdb As New conndb()
     Private Sub memberform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Try
-            If cdb.myObjconn().State = ConnectionState.Closed Then
-                cdb.myObjconn().Open()
-                ' MessageBox.Show("Connect")
-            End If
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            Application.Exit()
-        End Try
+        'Try
+        '    If cdb.myObjconn().State = ConnectionState.Closed Then
+        '        cdb.myObjconn().Open()
+        '        ' MessageBox.Show("Connect")
+        '    End If
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.ToString)
+        '    Application.Exit()
+        'End Try
     End Sub
     Private Sub btnInsertMem_Click(sender As Object, e As EventArgs) Handles btnInsertMem.Click
         'Dim Str As String 'คำสั่ง SQL ใช้ INSERT
