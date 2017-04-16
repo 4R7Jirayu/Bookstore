@@ -1,6 +1,7 @@
 ﻿Option Explicit On
 Option Strict On
 Imports System.Data.SqlClient
+Imports System.Data.SqlClient.SqlCommand
 'Imports CrystalDecisions.CrystalReports.Engine
 Public Class conndb
     Private StrConn As String = "Data Source=10.199.66.228; Initial Catalog=bookbd; Uid=bookbd; Pwd=bookbd;"
@@ -9,7 +10,19 @@ Public Class conndb
     Private da As SqlDataAdapter
     Private dr As SqlDataReader
     Private str As String
-    Dim cmd As New SqlCommand(str, ObjConn)
+    Private cmd As SqlCommand
+
+    Public Property mycmd() As SqlCommand
+        Get
+            'Dim cmd = New SqlClient.SqlCommand(cdb.mystr, cdb.myObjconn)
+            'cmd.ExecuteNonQuery()
+            cmd = New SqlCommand(mystr, myObjconn)
+            Return cmd
+        End Get
+        Set(value As SqlCommand)
+            cmd = value
+        End Set
+    End Property
 
     Public Property mystr() As String
         Get
@@ -26,7 +39,6 @@ Public Class conndb
             Return dr
         End Get
         Set(value As SqlDataReader)
-            value = cmd.ExecuteReader()
             dr = value
         End Set
     End Property

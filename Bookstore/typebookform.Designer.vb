@@ -68,6 +68,8 @@ Partial Class typebookform
         '
         'DataGridViewTypeBook
         '
+        Me.DataGridViewTypeBook.AllowUserToAddRows = False
+        Me.DataGridViewTypeBook.AllowUserToDeleteRows = False
         Me.DataGridViewTypeBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewTypeBook.Location = New System.Drawing.Point(12, 85)
         Me.DataGridViewTypeBook.MultiSelect = False

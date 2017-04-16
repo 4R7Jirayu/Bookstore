@@ -15,6 +15,7 @@
         'Dim Str As String 'คำสั่ง SQL ใช้ INSERT
         cdb.mystr = "INSERT INTO  [bookbd].[dbo].[Member] (SSN,FName,LName,Tel,Address) "
         cdb.mystr += "VALUES('" + txtSNN.Text + "','" + txtName.Text + "','" + txtLname.Text + "','" + TxtTel.Text + "','" + txtAds.Text + "');"
+        cdb.myObjconn.Open()
         Dim cmd = New SqlClient.SqlCommand(cdb.mystr, cdb.myObjconn())
         cmd.ExecuteNonQuery()
         cdb.myObjconn().Close()

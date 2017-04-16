@@ -46,14 +46,14 @@ Partial Class bookinform
         Me.btnBUpdate = New System.Windows.Forms.Button()
         Me.TabControlBShow = New System.Windows.Forms.TabControl()
         Me.TabPageShow = New System.Windows.Forms.TabPage()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewShowinfoBook = New System.Windows.Forms.DataGridView()
         Me.TabPageInsert = New System.Windows.Forms.TabPage()
-        Me.comboBtype = New System.Windows.Forms.ComboBox()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.comboBtype = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.TabControlBShow.SuspendLayout()
         Me.TabPageShow.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewShowinfoBook, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPageInsert.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -252,7 +252,7 @@ Partial Class bookinform
         '
         'TabPageShow
         '
-        Me.TabPageShow.Controls.Add(Me.DataGridView1)
+        Me.TabPageShow.Controls.Add(Me.DataGridViewShowinfoBook)
         Me.TabPageShow.Location = New System.Drawing.Point(4, 22)
         Me.TabPageShow.Name = "TabPageShow"
         Me.TabPageShow.Padding = New System.Windows.Forms.Padding(3)
@@ -261,13 +261,16 @@ Partial Class bookinform
         Me.TabPageShow.Text = "หนังสือ"
         Me.TabPageShow.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'DataGridViewShowinfoBook
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 3)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(482, 311)
-        Me.DataGridView1.TabIndex = 0
+        Me.DataGridViewShowinfoBook.AllowUserToAddRows = False
+        Me.DataGridViewShowinfoBook.AllowUserToDeleteRows = False
+        Me.DataGridViewShowinfoBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewShowinfoBook.Location = New System.Drawing.Point(3, 3)
+        Me.DataGridViewShowinfoBook.Name = "DataGridViewShowinfoBook"
+        Me.DataGridViewShowinfoBook.ReadOnly = True
+        Me.DataGridViewShowinfoBook.Size = New System.Drawing.Size(482, 311)
+        Me.DataGridViewShowinfoBook.TabIndex = 0
         '
         'TabPageInsert
         '
@@ -298,14 +301,6 @@ Partial Class bookinform
         Me.TabPageInsert.Text = "เพิ่ม"
         Me.TabPageInsert.UseVisualStyleBackColor = True
         '
-        'comboBtype
-        '
-        Me.comboBtype.FormattingEnabled = True
-        Me.comboBtype.Location = New System.Drawing.Point(197, 67)
-        Me.comboBtype.Name = "comboBtype"
-        Me.comboBtype.Size = New System.Drawing.Size(147, 21)
-        Me.comboBtype.TabIndex = 24
-        '
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
@@ -316,6 +311,14 @@ Partial Class bookinform
         Me.LinkLabel1.TabIndex = 26
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "เพิ่มประเภทหนังสือ"
+        '
+        'comboBtype
+        '
+        Me.comboBtype.FormattingEnabled = True
+        Me.comboBtype.Location = New System.Drawing.Point(197, 67)
+        Me.comboBtype.Name = "comboBtype"
+        Me.comboBtype.Size = New System.Drawing.Size(147, 21)
+        Me.comboBtype.TabIndex = 24
         '
         'bookinform
         '
@@ -331,7 +334,7 @@ Partial Class bookinform
         Me.GroupBox1.PerformLayout()
         Me.TabControlBShow.ResumeLayout(False)
         Me.TabPageShow.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewShowinfoBook, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPageInsert.ResumeLayout(False)
         Me.TabPageInsert.PerformLayout()
         Me.ResumeLayout(False)
@@ -364,7 +367,7 @@ Partial Class bookinform
     Friend WithEvents TabControlBShow As TabControl
     Friend WithEvents TabPageShow As TabPage
     Friend WithEvents TabPageInsert As TabPage
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DataGridViewShowinfoBook As DataGridView
     Friend WithEvents comboBtype As ComboBox
     Friend WithEvents LinkLabel1 As LinkLabel
 End Class

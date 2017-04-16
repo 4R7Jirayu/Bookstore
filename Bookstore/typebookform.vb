@@ -1,6 +1,6 @@
 ﻿Public Class typebookform
     Dim cdb As New conndb()
-    Dim strcell As String
+    Private strcell As String
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         ' comboBTypeID.SelectedValue.ToString()
         cdb.mystr = "INSERT INTO  [bookbd].[dbo].[Book_Type] (BookType_ID,BookType_Name) "
