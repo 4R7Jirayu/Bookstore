@@ -44,8 +44,10 @@
     End Sub
 
     Private Sub btnBSearch_Click(sender As Object, e As EventArgs) Handles btnBSearch.Click
+
         If ComboBKey.Text = "ชื่อหนังสือ" Then
-            cdb.mystr = "SELECT [Book_ID],[Book_Name],[Writer],[BookBorrow_Price],[Book_Price],[LimitBorrow_Date],[Status],[BookType_ID] FROM [dbo].[Book] WHERE [Book_Name] = '" + txtBName.Text + "';"
+            cdb.myObjconn.Open()
+            cdb.mystr = "SELECT [Book_ID],[Book_Name],[Writer],[BookBorrow_Price],[Book_Price],[LimitBorrow_Date],[Status],[BookType_ID] FROM [bookbd].[dbo].[Book] WHERE [Book_Name] = '" + txtBSearch.Text + "';"
             If cdb.mydr().HasRows Then
                 While cdb.mydr().Read
                     db2txtB()

@@ -1,4 +1,5 @@
-﻿Public Class borrowform
+﻿Imports System.Data.SqlClient
+Public Class borrowform
     Dim cdb As New conndb()
     Dim totalBRP As Integer
     Dim DateReturn As Integer
@@ -17,20 +18,20 @@
     End Sub
     Private Function getLimitBor() As Integer
         Dim limit As Integer
-        cdb.myObjconn.Open()
         cdb.mystr = "SELECT [LimitBorrow_Date] FROM [bookbd].[dbo].[Book] WHERE [Book].[Book_ID] = '" + txtBookID.Text + "';"
-        cdb.mydr = cdb.mycmd.ExecuteReader()
-        If cdb.mydr().HasRows Then
-            While cdb.mydr().Read
-                limit = CInt(cdb.mydr().Item(0))
-            End While
+        cdb.myObjconn = New SqlConnection(cdb.myStrconn)
+        cdb.myObjconn.Open()
+        Dim objCmd As SqlCommand = New SqlCommand(cdb.mystr, cdb.myObjconn)
+        cdb.mydr = objCmd.ExecuteReader()
+        cdb.mydr.Read()
+        If cdb.mydr.HasRows Then
+            limit = CInt(cdb.mydr.Item(0))
         Else
             MessageBox.Show("ไม่มีข้อมูล", "ไม่พบหนังสือ")
         End If
-
-        Return limit
         cdb.mydr.Close()
-        'cdb.myObjconn().Close()
+        cdb.myObjconn.Close()
+        Return limit
     End Function
 
     Private Function calBRP() As Integer
