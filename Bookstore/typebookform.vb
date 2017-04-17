@@ -41,7 +41,8 @@
         showdata()
     End Sub
     Private Sub deldtgridview()
-        cdb.mystr = "Delete [bookbd].[dbo].[Book_Type] where Book_Type.BookType_ID = '" + strcell.Trim + "';"
+        cdb.mystr = "Delete From [bookbd].[dbo].[Book_Type] where [dbo].[Book_Type].[BookType_ID] = '" + strcell.Trim + "';"
+        'cdb.mystr = "DELETE FROM [dbo].[Book_Type] WHERE [dbo].[Book_Type].[BookType_ID] = '" + strcell.Trim + "';"
         Dim result As Integer = MessageBox.Show("ลบข้อมูลรหัสหนังสือ " + strcell.Trim, "", MessageBoxButtons.YesNo)
         If result = DialogResult.Yes Then
             showdata()

@@ -14,8 +14,7 @@ Public Class conndb
 
     Public Property mycmd() As SqlCommand
         Get
-            'Dim cmd = New SqlClient.SqlCommand(cdb.mystr, cdb.myObjconn)
-            'cmd.ExecuteNonQuery()
+
             cmd = New SqlCommand(mystr, myObjconn)
             Return cmd
         End Get
@@ -47,6 +46,7 @@ Public Class conndb
             Return StrConn
         End Get
         Set(value As String)
+
             StrConn = value
         End Set
     End Property

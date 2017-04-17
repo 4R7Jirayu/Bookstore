@@ -95,6 +95,7 @@
             End While
             cdb.mydr.Close()
         End If
+        ' comboSource.Add(comboSource.Count + 1, "อื่นๆ")
         comboBtype.DataSource = New BindingSource(comboSource, Nothing)
         comboBtype.DisplayMember = "Value"
         comboBtype.ValueMember = "Key"
@@ -122,4 +123,6 @@
         DataGridViewShowinfoBook.Columns(8).HeaderText = "ยืมได้"
         DataGridViewShowinfoBook.Columns(9).HeaderText = "สถานะ"
     End Sub
+
+
 End Class
