@@ -27,11 +27,6 @@ Partial Class borrowform
         Me.btnAdd2L = New System.Windows.Forms.Button()
         Me.btnConf = New System.Windows.Forms.Button()
         Me.DataGVList = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.LbShowTime = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.LlTot = New System.Windows.Forms.Label()
         Me.No = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.รหัสสมาชิก = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ชื่อผู้ยืม = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -39,6 +34,11 @@ Partial Class borrowform
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ราคายืม = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.กำหนดวันส่ง = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LbShowTime = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.LlTot = New System.Windows.Forms.Label()
         CType(Me.DataGVList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -86,6 +86,49 @@ Partial Class borrowform
         Me.DataGVList.Size = New System.Drawing.Size(640, 336)
         Me.DataGVList.TabIndex = 4
         '
+        'No
+        '
+        Me.No.FillWeight = 20.0!
+        Me.No.HeaderText = "No."
+        Me.No.Name = "No"
+        Me.No.ReadOnly = True
+        '
+        'รหัสสมาชิก
+        '
+        Me.รหัสสมาชิก.HeaderText = "รหัสสมาชิก"
+        Me.รหัสสมาชิก.Name = "รหัสสมาชิก"
+        Me.รหัสสมาชิก.ReadOnly = True
+        '
+        'ชื่อผู้ยืม
+        '
+        Me.ชื่อผู้ยืม.HeaderText = "ชื่อผู้ยืม"
+        Me.ชื่อผู้ยืม.Name = "ชื่อผู้ยืม"
+        Me.ชื่อผู้ยืม.ReadOnly = True
+        '
+        'รหัสหนังสือ
+        '
+        Me.รหัสหนังสือ.HeaderText = "รหัสหนังสือ"
+        Me.รหัสหนังสือ.Name = "รหัสหนังสือ"
+        Me.รหัสหนังสือ.ReadOnly = True
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "ชื่อหนังสือ"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        '
+        'ราคายืม
+        '
+        Me.ราคายืม.HeaderText = "ราคายืม"
+        Me.ราคายืม.Name = "ราคายืม"
+        Me.ราคายืม.ReadOnly = True
+        '
+        'กำหนดวันส่ง
+        '
+        Me.กำหนดวันส่ง.HeaderText = "กำหนดวันส่ง"
+        Me.กำหนดวันส่ง.Name = "กำหนดวันส่ง"
+        Me.กำหนดวันส่ง.ReadOnly = True
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -129,49 +172,6 @@ Partial Class borrowform
         Me.LlTot.Name = "LlTot"
         Me.LlTot.Size = New System.Drawing.Size(0, 13)
         Me.LlTot.TabIndex = 9
-        '
-        'No
-        '
-        Me.No.FillWeight = 20.0!
-        Me.No.HeaderText = "No."
-        Me.No.Name = "No"
-        Me.No.ReadOnly = True
-        '
-        'รหัสสมาชิก
-        '
-        Me.รหัสสมาชิก.HeaderText = "รหัสสมาชิก"
-        Me.รหัสสมาชิก.Name = "รหัสสมาชิก"
-        Me.รหัสสมาชิก.ReadOnly = True
-        '
-        'ชื่อผู้ยืม
-        '
-        Me.ชื่อผู้ยืม.HeaderText = "ชื่อผู้ยืม"
-        Me.ชื่อผู้ยืม.Name = "ชื่อผู้ยืม"
-        Me.ชื่อผู้ยืม.ReadOnly = True
-        '
-        'รหัสหนังสือ
-        '
-        Me.รหัสหนังสือ.HeaderText = "รหัสหนังสือ"
-        Me.รหัสหนังสือ.Name = "รหัสหนังสือ"
-        Me.รหัสหนังสือ.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "ชื่อหนังสือ"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'ราคายืม
-        '
-        Me.ราคายืม.HeaderText = "ราคายืม"
-        Me.ราคายืม.Name = "ราคายืม"
-        Me.ราคายืม.ReadOnly = True
-        '
-        'กำหนดวันส่ง
-        '
-        Me.กำหนดวันส่ง.HeaderText = "กำหนดวันส่ง"
-        Me.กำหนดวันส่ง.Name = "กำหนดวันส่ง"
-        Me.กำหนดวันส่ง.ReadOnly = True
         '
         'borrowform
         '

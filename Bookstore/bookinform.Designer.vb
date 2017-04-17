@@ -163,10 +163,12 @@ Partial Class bookinform
         '
         'txtBstt
         '
+        Me.txtBstt.Enabled = False
         Me.txtBstt.Location = New System.Drawing.Point(197, 198)
         Me.txtBstt.Name = "txtBstt"
         Me.txtBstt.Size = New System.Drawing.Size(147, 20)
         Me.txtBstt.TabIndex = 13
+        Me.txtBstt.Text = "yes"
         '
         'Label3
         '
