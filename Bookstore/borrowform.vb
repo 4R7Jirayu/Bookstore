@@ -50,7 +50,8 @@ Public Class borrowform
         Dim cmd As New Data.SqlClient.SqlCommand
 
         connection.ConnectionString = cdb.myStrconn()
-        cmd.CommandText = "INSERT INTO [dbo].[bill] ([Bdate],[SSN],[money]) VALUES (@TBdate,@BSSN,@Bmoney) ;"
+        cmd.CommandText = "INSERT INTO [dbo].[bill] ([Bdate],[SSN],[money],[type]) VALUES (@TBdate,@BSSN,@Bmoney,'B') ;"
+
         cmd.Parameters.Add("@TBdate", SqlDbType.DateTime)
         cmd.Parameters.Add("@BSSN", SqlDbType.VarChar)
         cmd.Parameters.Add("@Bmoney", SqlDbType.Int)

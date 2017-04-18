@@ -27,18 +27,19 @@ Partial Class returnfrom
         Me.btnS = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.btnUpdate = New System.Windows.Forms.Button()
-        Me.txtFell = New System.Windows.Forms.TextBox()
-        Me.timeReturn = New System.Windows.Forms.Label()
-        Me.CheckBox = New System.Windows.Forms.CheckBox()
-        Me.DataGridView = New System.Windows.Forms.DataGridView()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtBname = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtBID = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtReDate = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtBID = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtBname = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnUpdate = New System.Windows.Forms.Button()
+        Me.txtFell = New System.Windows.Forms.TextBox()
+        Me.lbtotalFee = New System.Windows.Forms.Label()
+        Me.CheckBox = New System.Windows.Forms.CheckBox()
+        Me.DataGridView = New System.Windows.Forms.DataGridView()
+        Me.btnPFee = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,6 +83,7 @@ Partial Class returnfrom
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.btnPFee)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.txtReDate)
         Me.GroupBox2.Controls.Add(Me.Label4)
@@ -91,7 +93,7 @@ Partial Class returnfrom
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.btnUpdate)
         Me.GroupBox2.Controls.Add(Me.txtFell)
-        Me.GroupBox2.Controls.Add(Me.timeReturn)
+        Me.GroupBox2.Controls.Add(Me.lbtotalFee)
         Me.GroupBox2.Controls.Add(Me.CheckBox)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 70)
         Me.GroupBox2.Name = "GroupBox2"
@@ -99,76 +101,21 @@ Partial Class returnfrom
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         '
-        'btnUpdate
+        'Label5
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(507, 35)
-        Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(113, 23)
-        Me.btnUpdate.TabIndex = 3
-        Me.btnUpdate.Text = "ตกลง"
-        Me.btnUpdate.UseVisualStyleBackColor = True
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(202, 25)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(56, 13)
+        Me.Label5.TabIndex = 9
+        Me.Label5.Text = "กำหนดคืน"
         '
-        'txtFell
+        'txtReDate
         '
-        Me.txtFell.Location = New System.Drawing.Point(438, 22)
-        Me.txtFell.Name = "txtFell"
-        Me.txtFell.Size = New System.Drawing.Size(53, 20)
-        Me.txtFell.TabIndex = 2
-        '
-        'timeReturn
-        '
-        Me.timeReturn.AutoSize = True
-        Me.timeReturn.Location = New System.Drawing.Point(202, 57)
-        Me.timeReturn.Name = "timeReturn"
-        Me.timeReturn.Size = New System.Drawing.Size(44, 13)
-        Me.timeReturn.TabIndex = 1
-        Me.timeReturn.Text = "เวลาคืน"
-        '
-        'CheckBox
-        '
-        Me.CheckBox.AutoSize = True
-        Me.CheckBox.Location = New System.Drawing.Point(438, 52)
-        Me.CheckBox.Name = "CheckBox"
-        Me.CheckBox.Size = New System.Drawing.Size(41, 17)
-        Me.CheckBox.TabIndex = 0
-        Me.CheckBox.Text = "คืน"
-        Me.CheckBox.UseVisualStyleBackColor = True
-        '
-        'DataGridView
-        '
-        Me.DataGridView.AllowUserToAddRows = False
-        Me.DataGridView.AllowUserToDeleteRows = False
-        Me.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView.Location = New System.Drawing.Point(33, 180)
-        Me.DataGridView.Name = "DataGridView"
-        Me.DataGridView.ReadOnly = True
-        Me.DataGridView.Size = New System.Drawing.Size(599, 262)
-        Me.DataGridView.TabIndex = 5
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(393, 25)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(39, 13)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "ค่าปรับ"
-        '
-        'txtBname
-        '
-        Me.txtBname.Location = New System.Drawing.Point(71, 22)
-        Me.txtBname.Name = "txtBname"
-        Me.txtBname.Size = New System.Drawing.Size(100, 20)
-        Me.txtBname.TabIndex = 3
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(13, 25)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(52, 13)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "ชื่อหนังสือ"
+        Me.txtReDate.Location = New System.Drawing.Point(260, 22)
+        Me.txtReDate.Name = "txtReDate"
+        Me.txtReDate.Size = New System.Drawing.Size(100, 20)
+        Me.txtReDate.TabIndex = 8
         '
         'Label4
         '
@@ -186,21 +133,85 @@ Partial Class returnfrom
         Me.txtBID.Size = New System.Drawing.Size(100, 20)
         Me.txtBID.TabIndex = 6
         '
-        'Label5
+        'Label3
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(202, 25)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(56, 13)
-        Me.Label5.TabIndex = 9
-        Me.Label5.Text = "กำหนดคืน"
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(13, 25)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(52, 13)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "ชื่อหนังสือ"
         '
-        'txtReDate
+        'txtBname
         '
-        Me.txtReDate.Location = New System.Drawing.Point(260, 22)
-        Me.txtReDate.Name = "txtReDate"
-        Me.txtReDate.Size = New System.Drawing.Size(100, 20)
-        Me.txtReDate.TabIndex = 8
+        Me.txtBname.Location = New System.Drawing.Point(71, 22)
+        Me.txtBname.Name = "txtBname"
+        Me.txtBname.Size = New System.Drawing.Size(100, 20)
+        Me.txtBname.TabIndex = 3
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(380, 25)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 13)
+        Me.Label2.TabIndex = 4
+        Me.Label2.Text = "ค่าปรับ"
+        '
+        'btnUpdate
+        '
+        Me.btnUpdate.Location = New System.Drawing.Point(260, 55)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(63, 23)
+        Me.btnUpdate.TabIndex = 3
+        Me.btnUpdate.Text = "ยืนยัน"
+        Me.btnUpdate.UseVisualStyleBackColor = True
+        '
+        'txtFell
+        '
+        Me.txtFell.Location = New System.Drawing.Point(425, 22)
+        Me.txtFell.Name = "txtFell"
+        Me.txtFell.Size = New System.Drawing.Size(53, 20)
+        Me.txtFell.TabIndex = 2
+        '
+        'lbtotalFee
+        '
+        Me.lbtotalFee.AutoSize = True
+        Me.lbtotalFee.Location = New System.Drawing.Point(492, 25)
+        Me.lbtotalFee.Name = "lbtotalFee"
+        Me.lbtotalFee.Size = New System.Drawing.Size(58, 13)
+        Me.lbtotalFee.TabIndex = 1
+        Me.lbtotalFee.Text = "รวมค่าปรับ"
+        '
+        'CheckBox
+        '
+        Me.CheckBox.AutoSize = True
+        Me.CheckBox.Location = New System.Drawing.Point(201, 59)
+        Me.CheckBox.Name = "CheckBox"
+        Me.CheckBox.Size = New System.Drawing.Size(41, 17)
+        Me.CheckBox.TabIndex = 0
+        Me.CheckBox.Text = "คืน"
+        Me.CheckBox.UseVisualStyleBackColor = True
+        '
+        'DataGridView
+        '
+        Me.DataGridView.AllowUserToAddRows = False
+        Me.DataGridView.AllowUserToDeleteRows = False
+        Me.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView.Location = New System.Drawing.Point(33, 180)
+        Me.DataGridView.Name = "DataGridView"
+        Me.DataGridView.ReadOnly = True
+        Me.DataGridView.Size = New System.Drawing.Size(599, 262)
+        Me.DataGridView.TabIndex = 5
+        '
+        'btnPFee
+        '
+        Me.btnPFee.Location = New System.Drawing.Point(412, 55)
+        Me.btnPFee.Name = "btnPFee"
+        Me.btnPFee.Size = New System.Drawing.Size(66, 23)
+        Me.btnPFee.TabIndex = 10
+        Me.btnPFee.Text = "จ่ายค่าปรับ"
+        Me.btnPFee.UseVisualStyleBackColor = True
         '
         'returnfrom
         '
@@ -228,7 +239,7 @@ Partial Class returnfrom
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents btnUpdate As Button
     Friend WithEvents txtFell As TextBox
-    Friend WithEvents timeReturn As Label
+    Friend WithEvents lbtotalFee As Label
     Friend WithEvents CheckBox As CheckBox
     Friend WithEvents DataGridView As DataGridView
     Friend WithEvents Label2 As Label
@@ -238,4 +249,5 @@ Partial Class returnfrom
     Friend WithEvents Label3 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents txtReDate As TextBox
+    Friend WithEvents btnPFee As Button
 End Class
