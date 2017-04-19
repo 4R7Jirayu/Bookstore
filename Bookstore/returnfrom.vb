@@ -5,18 +5,7 @@
     Private Sub returnfrom_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtFell.Text = calFee(Date.FromOADate((15 / 4 / 2017)), Date.FromOADate((18 / 4 / 2017))).ToString
     End Sub
-    Private Sub showdata()
-        cdb.mystr = "SELECT dbo.BorrowReturn.Borrow_ID, dbo.BorrowReturn.Borrow_Date, dbo.BorrowReturn.Return_Date, dbo.BorrowReturn.SSN, dbo.BorrowReturn.Book_ID, dbo.Book.Status
-                     FROM  dbo.Book INNER JOIN dbo.BorrowReturn ON dbo.Book.Book_ID = dbo.BorrowReturn.Book_ID WHERE dbo.BorrowReturn.SSN = '" + txtSkey.Text + "' "
-        cdb.myObjconn().Open()
-        cdb.myda() = New SqlClient.SqlDataAdapter(cdb.mystr, cdb.myObjconn)
-        cdb.myds() = New DataSet
-        cdb.myda().Fill(cdb.myds(), "Book")
 
-        DataGridView.DataMember = "Book"
-        DataGridView.DataSource = cdb.myds()
-        cdb.myObjconn().Close()
-    End Sub
 
     Private Sub intotxt()
         ctxt()
@@ -144,6 +133,20 @@
         cmd.ExecuteNonQuery()
 
     End Sub
+
+    Private Sub showdata()
+        cdb.mystr = "SELECT dbo.BorrowReturn.Borrow_ID, dbo.BorrowReturn.Borrow_Date, dbo.BorrowReturn.Return_Date, dbo.BorrowReturn.SSN, dbo.BorrowReturn.Book_ID, dbo.Book.Status
+                     FROM  dbo.Book INNER JOIN dbo.BorrowReturn ON dbo.Book.Book_ID = dbo.BorrowReturn.Book_ID WHERE dbo.BorrowReturn.SSN = '" + txtSkey.Text + "' and dbo.book.Status <> 'yes'"
+        cdb.myObjconn().Open()
+        cdb.myda() = New SqlClient.SqlDataAdapter(cdb.mystr, cdb.myObjconn)
+        cdb.myds() = New DataSet
+        cdb.myda().Fill(cdb.myds(), "Book")
+
+        DataGridView.DataMember = "Book"
+        DataGridView.DataSource = cdb.myds()
+        cdb.myObjconn().Close()
+    End Sub
+
 
 
 End Class

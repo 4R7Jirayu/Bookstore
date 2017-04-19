@@ -155,6 +155,7 @@ Partial Class borrowform
         Me.LbShowTime.Size = New System.Drawing.Size(43, 13)
         Me.LbShowTime.TabIndex = 7
         Me.LbShowTime.Text = "เวลายืม"
+        Me.LbShowTime.Visible = False
         '
         'Label4
         '

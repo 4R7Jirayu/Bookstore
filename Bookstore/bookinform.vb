@@ -3,58 +3,79 @@
 
     Public strcell As String
     Private Sub bookinform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        intoComboTypeS()
-        ' setheaderGridview()
-        intocomboBType()
         showdata()
+        cdb.myObjconn.Open()
+        intoComboTypeS()
+
     End Sub
 
     Private Sub btnBUpdate_Click(sender As Object, e As EventArgs) Handles btnBUpdate.Click
         If btnBUpdate.Text = "แก้ไข" Then
+            ' 
+            '  cdb.mystr = "UPDATE Student SET Student.std_name ='" + txtName.Text + "',Student.std_lastname ='" + txtLastname.Text + "',Student.dept_id='" + cbDept.SelectedValue.ToString() + "',Student.std_address ='" + txtAddress.Text + "',Student.email ='" + txtmail.Text + "',Student.tel ='" + txttel.Text + "' WHERE Student.std_id='" + txtStdID.Text + "';"
+            cdb.mystr = "UPDATE [dbo].[Book]
+   SET [Book_ID] = '" + txtBId.Text + "'
+      ,[Book_Name] ='" + txtBName.Text + "'
+      ,[Writer] = '" + txtBwrt.Text + "'
+      ,[BookBorrow_Price] = '" + txtBBrlP.Text + "'
+      ,[Book_Price] = '" + txtBCvP.Text + "'
+      ,[LimitBorrow_Date] = '" + txtBLm.Text + "'
+      ,[Status] = '" + txtBstt.Text + "'
+      ,[BookType_ID] = '" + comboBtype.SelectedValue + "'
+ WHERE [Book_ID] =  '" + txtBId.Text + "'"
+            Dim cmd = New SqlClient.SqlCommand(cdb.mystr, cdb.myObjconn())
+            cmd.ExecuteNonQuery()
+            MessageBox.Show("อัฟเดตข้อมูลได้สำเร็จ", "ผลการดำเนินการ")
+            cdb.myObjconn.Close()
             btnBUpdate.Text = "อัปเดตข้อมูล"
         ElseIf btnBUpdate.Text = "อัปเดตข้อมูล" Then
             btnBUpdate.Text = "แก้ไข"
-
-            'txtBId.Visible = True
-            ''    txtBId = Visible
-            'txtBName.Text = Visible
-            'txtBwrt.Text = Visible
-            'txtBBrlP.Text = Visible
-            'txtBCvP.Text = Visible
-            'txtBLm.Text = Visible
-            'txtBstt.Text = Visible
-            'comboBtype.Text = Visible
 
         End If
     End Sub
 
     Private Sub btnBInsert_Click(sender As Object, e As EventArgs) Handles btnBInsert.Click
-        Dim Str As String 'คำสั่ง SQL ใช้ INSERT]
 
         cdb.mystr = "INSERT INTO [bookbd].[dbo].[Book] ([Book_ID],[Book_Name],[Writer],[BookBorrow_Price],[Book_Price],[LimitBorrow_Date],[Status],[BookType_ID]) "
         cdb.mystr += "VALUES ('" + txtBId.Text + "','" + txtBName.Text + "','" + txtBwrt.Text + "','" + txtBBrlP.Text + "','" + txtBCvP.Text + "','" + txtBLm.Text + "','" + txtBstt.Text + "','" + comboBtype.SelectedValue + "');"
 
-        cdb.myObjconn.Open()
-
-        'Dim cmd = New SqlClient.SqlCommand(cdb.mystr, cdb.myObjconn)
-        'cmd.ExecuteNonQuery()
         cdb.mycmd.ExecuteNonQuery()
         MessageBox.Show("เพิ่มข้อมูลได้สำเร็จ", "ผลการดำเนินการ")
         cdb.myObjconn().Close()
     End Sub
 
     Private Sub btnBSearch_Click(sender As Object, e As EventArgs) Handles btnBSearch.Click
-
         If ComboBKey.Text = "ชื่อหนังสือ" Then
-            cdb.myObjconn.Open()
-            cdb.mystr = "SELECT [Book_ID],[Book_Name],[Writer],[BookBorrow_Price],[Book_Price],[LimitBorrow_Date],[Status],[BookType_ID] FROM [bookbd].[dbo].[Book] WHERE [Book_Name] = '" + txtBSearch.Text + "';"
-            If cdb.mydr().HasRows Then
-                While cdb.mydr().Read
-                    db2txtB()
-                End While
-            Else
-                MessageBox.Show("ไม่มีข้อมูล", "ผลการดำเนินการ")
-            End If
+            cdb.mystr = "SELECT [Book_ID],[Book_Name],[Writer],[BookBorrow_Price],[Book_Price],[LimitBorrow_Date],[Status],[BookType_ID] FROM [bookbd].[dbo].[Book] WHERE [Book_Name] like '%" + txtBSearch.Text + "%';"
+            cdb.myda() = New SqlClient.SqlDataAdapter(cdb.mystr, cdb.myObjconn())
+            cdb.myds() = New DataSet
+
+            cdb.myda.Fill(cdb.myds(), "book")
+            DataGridViewShowinfoBook.DataMember = "book"
+            DataGridViewShowinfoBook.DataSource = cdb.myds()
+
+            cdb.mydr.Close()
+        End If
+        If ComboBKey.Text = "ชื่อผู้เขียน" Then
+            cdb.mystr = "SELECT [Book_ID],[Book_Name],[Writer],[BookBorrow_Price],[Book_Price],[LimitBorrow_Date],[Status],[BookType_ID] FROM [bookbd].[dbo].[Book] WHERE [Writer] like '%" + txtBSearch.Text + "%';"
+            cdb.myda() = New SqlClient.SqlDataAdapter(cdb.mystr, cdb.myObjconn())
+            cdb.myds() = New DataSet
+
+            cdb.myda.Fill(cdb.myds(), "book")
+            DataGridViewShowinfoBook.DataMember = "book"
+            DataGridViewShowinfoBook.DataSource = cdb.myds()
+
+            cdb.mydr.Close()
+        End If
+        If ComboBKey.Text = "รหัสหนังสือ" Then
+            cdb.mystr = "SELECT [Book_ID],[Book_Name],[Writer],[BookBorrow_Price],[Book_Price],[LimitBorrow_Date],[Status],[BookType_ID] FROM [bookbd].[dbo].[Book] WHERE [Book_ID] like '%" + txtBSearch.Text + "%';"
+            cdb.myda() = New SqlClient.SqlDataAdapter(cdb.mystr, cdb.myObjconn())
+            cdb.myds() = New DataSet
+
+            cdb.myda.Fill(cdb.myds(), "book")
+            DataGridViewShowinfoBook.DataMember = "book"
+            DataGridViewShowinfoBook.DataSource = cdb.myds()
+
             cdb.mydr.Close()
         End If
     End Sub
@@ -62,16 +83,6 @@
         typebookform.Show()
     End Sub
 
-    Private Sub db2txtB()
-        txtBId.Text += cdb.mydr().Item(0)
-        txtBName.Text += cdb.mydr().Item(1)
-        txtBwrt.Text += cdb.mydr().Item(2)
-        txtBBrlP.Text += cdb.mydr().Item(3)
-        txtBCvP.Text += cdb.mydr().Item(4)
-        txtBLm.Text += cdb.mydr().Item(5)
-        txtBstt.Text += cdb.mydr().Item(6)
-        comboBtype.Text += cdb.mydr().Item(7)
-    End Sub
 
     Private Sub intoComboTypeS()
         ComboBKey.Text = "ค้นหาแบบ"
@@ -84,7 +95,6 @@
 
     Private Sub intocomboBType() 'นำข้อมูลจากฐานข้อมูลมาใส่ Combobox
         cdb.mystr = "SELECT * FROM [bookbd].[dbo].[Book_Type]"
-        cdb.myObjconn().Open()
         Dim cmd As New SqlClient.SqlCommand(cdb.mystr(), cdb.myObjconn())
         cdb.mydr = cmd.ExecuteReader()
         Dim comboSource As New Dictionary(Of String, String)()
@@ -99,11 +109,11 @@
         comboBtype.DataSource = New BindingSource(comboSource, Nothing)
         comboBtype.DisplayMember = "Value"
         comboBtype.ValueMember = "Key"
-        cdb.myObjconn().Close()
+        'cdb.mydr.Close()
+        'cdb.myObjconn().Close()
     End Sub
     Private Sub showdata()
         cdb.mystr = "SELECT * FROM [bookbd].[dbo].[Book]"
-        cdb.myObjconn().Open()
         cdb.myda() = New SqlClient.SqlDataAdapter(cdb.mystr, cdb.myObjconn)
         cdb.myds() = New DataSet
         cdb.myda().Fill(cdb.myds(), "Book")
@@ -124,5 +134,51 @@
         DataGridViewShowinfoBook.Columns(9).HeaderText = "สถานะ"
     End Sub
 
+    Private Sub in2txt()
+        cdb.mystr = "SELECT        dbo.Book.Book_ID, dbo.Book.Book_Name, dbo.Book.Writer, dbo.Book.BookBorrow_Price, dbo.Book.Book_Price, dbo.Book.LimitBorrow_Date, dbo.Book.Status, dbo.Book_Type.BookType_Name
+FROM            dbo.Book INNER JOIN
+                         dbo.Book_Type ON dbo.Book.BookType_ID = dbo.Book_Type.BookType_ID where Book_ID = '" + strcell.Trim + "';"
+        Dim cmd As New SqlClient.SqlCommand(cdb.mystr, cdb.myObjconn())
+        cdb.mydr = cmd.ExecuteReader()
 
+        If cdb.mydr.HasRows Then
+            While cdb.mydr.Read
+                txtBId.Text = cdb.mydr.Item(0)
+                txtBName.Text = cdb.mydr().Item(1)
+                txtBwrt.Text = cdb.mydr().Item(2)
+                txtBBrlP.Text = cdb.mydr().Item(3)
+                txtBCvP.Text = cdb.mydr().Item(4)
+                txtBLm.Text = cdb.mydr().Item(5)
+                txtBstt.Text = cdb.mydr().Item(6)
+                comboBtype.Text = cdb.mydr().Item(7)
+
+
+            End While
+        Else
+            MessageBox.Show("ไม่มีข้อมูล", "ผลการดำเนินการ")
+        End If
+        cdb.mydr.Close()
+    End Sub
+
+    Private Sub DataGridViewShowinfoBook_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles DataGridViewShowinfoBook.MouseDoubleClick
+        TabControlBShow.SelectedTab = TabControlBShow.TabPages(1)
+        in2txt()
+        intocomboBType()
+    End Sub
+    Private Sub DataGridViewShowinfoBook_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewShowinfoBook.CellClick
+        With Me.DataGridViewShowinfoBook
+            .SelectionMode = DataGridViewSelectionMode.FullRowSelect
+            .MultiSelect = False
+        End With
+        strcell = DataGridViewShowinfoBook.Rows.Item(e.RowIndex).Cells(0).Value.ToString
+    End Sub
+
+    Private Sub TabControlBShow_MouseClick(sender As Object, e As MouseEventArgs) Handles TabControlBShow.MouseClick
+        'intocomboBType()
+        If TabControlBShow.SelectedTab Is TabControlBShow.TabPages(1) Then
+            intocomboBType()
+        ElseIf TabControlBShow.SelectedTab Is TabControlBShow.TabPages(0) Then
+            showdata()
+        End If
+    End Sub
 End Class

@@ -35,6 +35,7 @@ Public Class conndb
 
     Public Property mydr() As SqlDataReader
         Get
+            ' dr = cmd.ExecuteReader()
             Return dr
         End Get
         Set(value As SqlDataReader)
