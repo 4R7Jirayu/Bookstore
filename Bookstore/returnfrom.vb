@@ -3,7 +3,7 @@
     Dim strcell As String
     Dim totalFee As Long = 0
     Private Sub returnfrom_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txtFell.Text = calFee(Date.FromOADate((15 / 4 / 2017)), Date.FromOADate((18 / 4 / 2017))).ToString
+        '  txtFell.Text = calFee(Date.FromOADate((15 / 4 / 2017)), Date.FromOADate((18 / 4 / 2017))).ToString
     End Sub
 
 
@@ -15,9 +15,9 @@
         cdb.mydr = cmd.ExecuteReader()
         If cdb.mydr.HasRows Then
             While cdb.mydr.Read
-                txtBname.Text += cdb.mydr.Item(0)
-                txtBID.Text += cdb.mydr.Item(1)
-                txtReDate.Text += cdb.mydr.Item(2)
+                txtBname.Text = cdb.mydr.Item(0)
+                txtBID.Text = cdb.mydr.Item(1)
+                txtReDate.Text = cdb.mydr.Item(2)
             End While
         Else
             MessageBox.Show("ไม่มีข้อมูล", "ผลการดำเนินการ")
@@ -47,17 +47,7 @@
         showdata()
     End Sub
 
-    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        txtFell.Text = calFee(CDate(txtReDate.Text), Date.Now)
-        totalFee += CInt(txtFell.Text)
-        lbtotalFee.Text = "รวมค่าปรับทั้งหมด " + totalFee.ToString + " บาท"
-        If CheckBox.Checked Then
-            DGUpdateBook()
-            DGUpdatefee()
-            MessageBox.Show("คืนสำเร็จ")
-            CheckBox.CheckState = CheckState.Unchecked
-        End If
-    End Sub
+
     Private Sub btnPFee_Click(sender As Object, e As EventArgs) Handles btnPFee.Click
         DGinsertBill()
         totalFee = 0
@@ -148,5 +138,15 @@
     End Sub
 
 
-
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        txtFell.Text = calFee(CDate(txtReDate.Text), Date.Now)
+        totalFee += CInt(txtFell.Text)
+        lbtotalFee.Text = "รวมค่าปรับทั้งหมด " + totalFee.ToString + " บาท"
+        If CheckBox.Checked Then
+            DGUpdateBook()
+            DGUpdatefee()
+            MessageBox.Show("คืนสำเร็จ")
+            CheckBox.CheckState = CheckState.Unchecked
+        End If
+    End Sub
 End Class

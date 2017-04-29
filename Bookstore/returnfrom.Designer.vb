@@ -27,6 +27,7 @@ Partial Class returnfrom
         Me.btnS = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnPFee = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtReDate = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -39,7 +40,6 @@ Partial Class returnfrom
         Me.lbtotalFee = New System.Windows.Forms.Label()
         Me.CheckBox = New System.Windows.Forms.CheckBox()
         Me.DataGridView = New System.Windows.Forms.DataGridView()
-        Me.btnPFee = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,6 +101,15 @@ Partial Class returnfrom
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         '
+        'btnPFee
+        '
+        Me.btnPFee.Location = New System.Drawing.Point(412, 55)
+        Me.btnPFee.Name = "btnPFee"
+        Me.btnPFee.Size = New System.Drawing.Size(66, 23)
+        Me.btnPFee.TabIndex = 10
+        Me.btnPFee.Text = "จ่ายค่าปรับ"
+        Me.btnPFee.UseVisualStyleBackColor = True
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -114,6 +123,7 @@ Partial Class returnfrom
         '
         Me.txtReDate.Location = New System.Drawing.Point(260, 22)
         Me.txtReDate.Name = "txtReDate"
+        Me.txtReDate.ReadOnly = True
         Me.txtReDate.Size = New System.Drawing.Size(100, 20)
         Me.txtReDate.TabIndex = 8
         '
@@ -130,6 +140,7 @@ Partial Class returnfrom
         '
         Me.txtBID.Location = New System.Drawing.Point(71, 52)
         Me.txtBID.Name = "txtBID"
+        Me.txtBID.ReadOnly = True
         Me.txtBID.Size = New System.Drawing.Size(100, 20)
         Me.txtBID.TabIndex = 6
         '
@@ -146,6 +157,7 @@ Partial Class returnfrom
         '
         Me.txtBname.Location = New System.Drawing.Point(71, 22)
         Me.txtBname.Name = "txtBname"
+        Me.txtBname.ReadOnly = True
         Me.txtBname.Size = New System.Drawing.Size(100, 20)
         Me.txtBname.TabIndex = 3
         '
@@ -171,6 +183,7 @@ Partial Class returnfrom
         '
         Me.txtFell.Location = New System.Drawing.Point(425, 22)
         Me.txtFell.Name = "txtFell"
+        Me.txtFell.ReadOnly = True
         Me.txtFell.Size = New System.Drawing.Size(53, 20)
         Me.txtFell.TabIndex = 2
         '
@@ -203,15 +216,6 @@ Partial Class returnfrom
         Me.DataGridView.ReadOnly = True
         Me.DataGridView.Size = New System.Drawing.Size(599, 262)
         Me.DataGridView.TabIndex = 5
-        '
-        'btnPFee
-        '
-        Me.btnPFee.Location = New System.Drawing.Point(412, 55)
-        Me.btnPFee.Name = "btnPFee"
-        Me.btnPFee.Size = New System.Drawing.Size(66, 23)
-        Me.btnPFee.TabIndex = 10
-        Me.btnPFee.Text = "จ่ายค่าปรับ"
-        Me.btnPFee.UseVisualStyleBackColor = True
         '
         'returnfrom
         '
