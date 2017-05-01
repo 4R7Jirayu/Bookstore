@@ -28,8 +28,6 @@ Partial Class ShowBill
         Me.myCrytalReprotViewer = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Btn_impCtr = New System.Windows.Forms.Button()
-        Me.TxtPa = New System.Windows.Forms.TextBox()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.SuspendLayout()
         '
@@ -85,22 +83,6 @@ Partial Class ShowBill
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "ถึง"
         '
-        'Btn_impCtr
-        '
-        Me.Btn_impCtr.Location = New System.Drawing.Point(546, 23)
-        Me.Btn_impCtr.Name = "Btn_impCtr"
-        Me.Btn_impCtr.Size = New System.Drawing.Size(75, 23)
-        Me.Btn_impCtr.TabIndex = 6
-        Me.Btn_impCtr.Text = "Browser"
-        Me.Btn_impCtr.UseVisualStyleBackColor = True
-        '
-        'TxtPa
-        '
-        Me.TxtPa.Location = New System.Drawing.Point(643, 24)
-        Me.TxtPa.Name = "TxtPa"
-        Me.TxtPa.Size = New System.Drawing.Size(248, 20)
-        Me.TxtPa.TabIndex = 7
-        '
         'OpenFileDialog
         '
         Me.OpenFileDialog.FileName = "OpenFileDialog"
@@ -110,8 +92,6 @@ Partial Class ShowBill
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1051, 529)
-        Me.Controls.Add(Me.TxtPa)
-        Me.Controls.Add(Me.Btn_impCtr)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.myCrytalReprotViewer)
@@ -131,7 +111,5 @@ Partial Class ShowBill
     Friend WithEvents myCrytalReprotViewer As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Btn_impCtr As Button
-    Friend WithEvents TxtPa As TextBox
     Friend WithEvents OpenFileDialog As OpenFileDialog
 End Class
