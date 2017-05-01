@@ -203,5 +203,16 @@ Public Class borrowform
         checkshowj = False
     End Sub
 
-
+    Private Sub btnDel_Click(sender As Object, e As EventArgs) Handles btnDel.Click
+        Dim CurRow As Integer
+        CurRow = Me.DataGVList.CurrentRow.Index
+        If Me.DataGVList.Rows.Count <> 0 Then
+            Dim Result As MsgBoxResult
+            Result = MessageBox.Show("ต้องการลบรายการนี้หรือไม่", "ยืนยัน", MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Question, MessageBoxDefaultButton.Button1)
+            If Result = MsgBoxResult.Yes Then
+                Me.DataGVList.Rows.RemoveAt(CurRow)
+            End If
+        End If
+    End Sub
 End Class

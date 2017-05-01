@@ -14,25 +14,35 @@
     End Sub
     Private Sub btnInsertMem_Click(sender As Object, e As EventArgs) Handles btnInsertMem.Click
         'Dim Str As String 'คำสั่ง SQL ใช้ INSERT
-        cdb.mystr = "INSERT INTO  [bookbd].[dbo].[Member] (SSN,FName,LName,Tel,Address) "
-        cdb.mystr += "VALUES('" + txtSNN.Text + "','" + txtName.Text + "','" + txtLname.Text + "','" + TxtTel.Text + "','" + txtAds.Text + "');"
-        cdb.myObjconn.Open()
-        Dim cmd = New SqlClient.SqlCommand(cdb.mystr, cdb.myObjconn())
-        cmd.ExecuteNonQuery()
-        cdb.myObjconn().Close()
-        MessageBox.Show("เพิ่มข้อมูลได้สำเร็จ", "ผลการดำเนินการ")
+
+        Dim result As Integer = MessageBox.Show("ยืนยันการสมัครหรือไม่ ", "ยืนยันการสมัคร", MessageBoxButtons.YesNo)
+        If result = DialogResult.Yes Then
+            cdb.mystr = "INSERT INTO  [bookbd].[dbo].[Member] (SSN,FName,LName,Tel,Address) "
+            cdb.mystr += "VALUES('" + txtSNN.Text + "','" + txtName.Text + "','" + txtLname.Text + "','" + TxtTel.Text + "','" + txtAds.Text + "');"
+            ' cdb.myObjconn.Open()
+            Dim cmd = New SqlClient.SqlCommand(cdb.mystr, cdb.myObjconn())
+            cmd.ExecuteNonQuery()
+            cdb.myObjconn().Close()
+            MessageBox.Show("เพิ่มข้อมูลได้สำเร็จ", "ผลการดำเนินการ")
+            Cleartxt()
+        Else
+
+        End If
+
     End Sub
+
+
     Private Sub btnSearchMem_Click(sender As Object, e As EventArgs) Handles btnSearchMem.Click
         cdb.mystr = "SELECT Member.SSN,Member.FName,Member.LName,Member.Tel,Member.Address FROM Member WHERE Member.SSN = '" + txtInSearch.Text + "';"
         Dim cmd As New SqlClient.SqlCommand(cdb.mystr, cdb.myObjconn())
         cdb.mydr = cmd.ExecuteReader()
         If cdb.mydr().HasRows Then
             While cdb.mydr().Read
-                txtSNN.Text += cdb.mydr().Item(0)
-                txtName.Text += cdb.mydr().Item(1)
-                txtLname.Text += cdb.mydr().Item(2)
-                TxtTel.Text += cdb.mydr().Item(3)
-                txtAds.Text += cdb.mydr().Item(4)
+                txtSNN.Text = cdb.mydr().Item(0)
+                txtName.Text = cdb.mydr().Item(1)
+                txtLname.Text = cdb.mydr().Item(2)
+                TxtTel.Text = cdb.mydr().Item(3)
+                txtAds.Text = cdb.mydr().Item(4)
             End While
         Else
             MessageBox.Show("ไม่มีข้อมูล", "ผลการดำเนินการ")
@@ -46,7 +56,18 @@
         Dim cmd = New SqlClient.SqlCommand(cdb.mystr, cdb.myObjconn)
         cmd.ExecuteNonQuery()
         MessageBox.Show("อัฟเดตข้อมูลได้สำเร็จ", "ผลการดำเนินการ")
+        Cleartxt()
+
+    End Sub
+
+    Private Sub Cleartxt()
         cdb.myObjconn.Close()
+        txtSNN.Clear()
+        txtName.Clear()
+        txtLname.Clear()
+        TxtTel.Clear()
+        txtAds.Clear()
+        txtInSearch.Clear()
     End Sub
 
     Private Sub showdata()

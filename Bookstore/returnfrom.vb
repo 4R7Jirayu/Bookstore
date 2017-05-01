@@ -29,7 +29,6 @@
         txtReDate.Clear()
         txtBID.Clear()
         txtBname.Clear()
-
     End Sub
     Private Sub DataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView.CellContentClick
         With Me.DataGridView
@@ -139,14 +138,20 @@
 
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        txtFell.Text = calFee(CDate(txtReDate.Text), Date.Now)
-        totalFee += CInt(txtFell.Text)
-        lbtotalFee.Text = "รวมค่าปรับทั้งหมด " + totalFee.ToString + " บาท"
-        If CheckBox.Checked Then
-            DGUpdateBook()
-            DGUpdatefee()
-            MessageBox.Show("คืนสำเร็จ")
-            CheckBox.CheckState = CheckState.Unchecked
+        If CheckBox.CheckState = CheckState.Unchecked Then
+            MessageBox.Show("กรุณากดยืนยันการคืน")
+        Else
+            txtFell.Text = calFee(CDate(txtReDate.Text), Date.Now)
+            totalFee += CInt(txtFell.Text)
+            lbtotalFee.Text = "รวมค่าปรับทั้งหมด " + totalFee.ToString + " บาท"
+            If CheckBox.Checked Then
+                DGUpdateBook()
+                DGUpdatefee()
+                MessageBox.Show("คืนสำเร็จ")
+                CheckBox.CheckState = CheckState.Unchecked
+                showdata()
+                ctxt()
+            End If
         End If
     End Sub
 End Class

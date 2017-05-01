@@ -39,12 +39,13 @@ Partial Class borrowform
         Me.LbShowTime = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.LlTot = New System.Windows.Forms.Label()
+        Me.btnDel = New System.Windows.Forms.Button()
         CType(Me.DataGVList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtMemb
         '
-        Me.txtMemb.Location = New System.Drawing.Point(109, 35)
+        Me.txtMemb.Location = New System.Drawing.Point(97, 33)
         Me.txtMemb.Name = "txtMemb"
         Me.txtMemb.Size = New System.Drawing.Size(100, 20)
         Me.txtMemb.TabIndex = 0
@@ -58,7 +59,7 @@ Partial Class borrowform
         '
         'btnAdd2L
         '
-        Me.btnAdd2L.Location = New System.Drawing.Point(492, 31)
+        Me.btnAdd2L.Location = New System.Drawing.Point(462, 30)
         Me.btnAdd2L.Name = "btnAdd2L"
         Me.btnAdd2L.Size = New System.Drawing.Size(75, 23)
         Me.btnAdd2L.TabIndex = 2
@@ -132,11 +133,11 @@ Partial Class borrowform
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(62, 36)
+        Me.Label1.Location = New System.Drawing.Point(35, 37)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(41, 13)
+        Me.Label1.Size = New System.Drawing.Size(42, 13)
         Me.Label1.TabIndex = 5
-        Me.Label1.Text = "ชื่อผู้ยืม"
+        Me.Label1.Text = "ID ผู้ยืม"
         '
         'Label2
         '
@@ -174,11 +175,21 @@ Partial Class borrowform
         Me.LlTot.Size = New System.Drawing.Size(0, 13)
         Me.LlTot.TabIndex = 9
         '
+        'btnDel
+        '
+        Me.btnDel.Location = New System.Drawing.Point(543, 30)
+        Me.btnDel.Name = "btnDel"
+        Me.btnDel.Size = New System.Drawing.Size(75, 23)
+        Me.btnDel.TabIndex = 10
+        Me.btnDel.Text = "ลบ"
+        Me.btnDel.UseVisualStyleBackColor = True
+        '
         'borrowform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(664, 461)
+        Me.Controls.Add(Me.btnDel)
         Me.Controls.Add(Me.LlTot)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.LbShowTime)
@@ -214,4 +225,5 @@ Partial Class borrowform
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents ราคายืม As DataGridViewTextBoxColumn
     Friend WithEvents กำหนดวันส่ง As DataGridViewTextBoxColumn
+    Friend WithEvents btnDel As Button
 End Class
