@@ -9,7 +9,7 @@
         Dim cmd = New SqlClient.SqlCommand(cdb.mystr, cdb.myObjconn())
         cmd.ExecuteNonQuery()
         cdb.myObjconn().Close()
-        MessageBox.Show("เพิ่มข้อมูลได้สำเร็จ", "ผลการดำเนินการ")
+        MessageBox.Show("เพิ่มข้อมูลได้สำเร็จ", "ผลการดำเนินการ", MessageBoxButtons.OK, MessageBoxIcon.Information)
         showdata()
     End Sub
     Private Sub intocombo() 'นำข้อมูลจากฐานข้อมูลมาใส่ Combobox
@@ -49,7 +49,7 @@
             cdb.myObjconn().Open()
             Dim cmd = New SqlClient.SqlCommand(cdb.mystr, cdb.myObjconn())
             cmd.ExecuteNonQuery()
-            MessageBox.Show("ลบข้อความเรียบร้อยแล้ว", "แจ้งผลการดำเนินการ", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("ลบข้อความเรียบร้อยแล้ว", "ผลการดำเนินการ", MessageBoxButtons.OK, MessageBoxIcon.Information)
             cdb.myObjconn().Close()
             showdata()
         End If

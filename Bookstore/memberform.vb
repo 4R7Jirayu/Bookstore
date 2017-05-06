@@ -15,7 +15,7 @@
     Private Sub btnInsertMem_Click(sender As Object, e As EventArgs) Handles btnInsertMem.Click
         'Dim Str As String 'คำสั่ง SQL ใช้ INSERT
 
-        Dim result As Integer = MessageBox.Show("ยืนยันการสมัครหรือไม่ ", "ยืนยันการสมัคร", MessageBoxButtons.YesNo)
+        Dim result As Integer = MessageBox.Show("ยืนยันการสมัครหรือไม่ ", "การสมัครสมาชิก", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
             cdb.mystr = "INSERT INTO  [bookbd].[dbo].[Member] (SSN,FName,LName,Tel,Address) "
             cdb.mystr += "VALUES('" + txtSNN.Text + "','" + txtName.Text + "','" + txtLname.Text + "','" + TxtTel.Text + "','" + txtAds.Text + "');"
@@ -23,7 +23,7 @@
             Dim cmd = New SqlClient.SqlCommand(cdb.mystr, cdb.myObjconn())
             cmd.ExecuteNonQuery()
             cdb.myObjconn().Close()
-            MessageBox.Show("เพิ่มข้อมูลได้สำเร็จ", "ผลการดำเนินการ")
+            MessageBox.Show("เพิ่มข้อมูลได้สำเร็จ", "ผลการดำเนินการ",MessageBoxButtons.OK,MessageBoxIcon.Information )
             Cleartxt()
         Else
 
@@ -45,7 +45,7 @@
                 txtAds.Text = cdb.mydr().Item(4)
             End While
         Else
-            MessageBox.Show("ไม่มีข้อมูล", "ผลการดำเนินการ")
+            MessageBox.Show("ไม่มีข้อมูล", "ผลการดำเนินการ",MessageBoxButtons.OK,MessageBoxIcon.Warning)
         End If
         cdb.mydr.Close()
     End Sub
@@ -55,7 +55,7 @@
         cdb.mystr = "UPDATE Member SET Member.FName ='" + txtName.Text + "',Member.LName='" + txtLname.Text + "',Member.Tel ='" + TxtTel.Text + "',Member.Address ='" + txtAds.Text + "' WHERE Member.SSN = '" + txtSNN.Text + "';"
         Dim cmd = New SqlClient.SqlCommand(cdb.mystr, cdb.myObjconn)
         cmd.ExecuteNonQuery()
-        MessageBox.Show("อัฟเดตข้อมูลได้สำเร็จ", "ผลการดำเนินการ")
+        MessageBox.Show("อัฟเดตข้อมูลได้สำเร็จ", "ผลการดำเนินการ",MessageBoxButtons.OK,MessageBoxIcon.Information)
         Cleartxt()
 
     End Sub
@@ -79,6 +79,14 @@
         DataGridViewShow.DataMember = "mem"
         DataGridViewShow.DataSource = cdb.myds()
         cdb.myObjconn().Close()
+
+        DataGridViewShow.Columns(0).HeaderText = "รหัสประจำตัวประชาชน"
+        DataGridViewShow.Columns(1).HeaderText = "ชื่อ"
+        DataGridViewShow.Columns(2).HeaderText = "นามสกุล"
+        DataGridViewShow.Columns(3).HeaderText = "เบอร์โทร"
+        DataGridViewShow.Columns(4).HeaderText = "ที่อยู่"
+        'DataGridViewShow.Columns(5).HeaderText = "อีเมล์"
+        '  DataGridViewShow.Columns(6).HeaderText = "เบอร์โทรศัพท์"
     End Sub
 
     Private Sub TabControl1_MouseClick(sender As Object, e As MouseEventArgs) Handles TabControl1.MouseClick

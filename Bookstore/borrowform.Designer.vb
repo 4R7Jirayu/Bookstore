@@ -27,6 +27,12 @@ Partial Class borrowform
         Me.btnAdd2L = New System.Windows.Forms.Button()
         Me.btnConf = New System.Windows.Forms.Button()
         Me.DataGVList = New System.Windows.Forms.DataGridView()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LbShowTime = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.LlTot = New System.Windows.Forms.Label()
+        Me.btnDel = New System.Windows.Forms.Button()
         Me.No = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.รหัสสมาชิก = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ชื่อผู้ยืม = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -34,12 +40,6 @@ Partial Class borrowform
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ราคายืม = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.กำหนดวันส่ง = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.LbShowTime = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.LlTot = New System.Windows.Forms.Label()
-        Me.btnDel = New System.Windows.Forms.Button()
         CType(Me.DataGVList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -86,49 +86,6 @@ Partial Class borrowform
         Me.DataGVList.ReadOnly = True
         Me.DataGVList.Size = New System.Drawing.Size(640, 336)
         Me.DataGVList.TabIndex = 4
-        '
-        'No
-        '
-        Me.No.FillWeight = 20.0!
-        Me.No.HeaderText = "No."
-        Me.No.Name = "No"
-        Me.No.ReadOnly = True
-        '
-        'รหัสสมาชิก
-        '
-        Me.รหัสสมาชิก.HeaderText = "รหัสสมาชิก"
-        Me.รหัสสมาชิก.Name = "รหัสสมาชิก"
-        Me.รหัสสมาชิก.ReadOnly = True
-        '
-        'ชื่อผู้ยืม
-        '
-        Me.ชื่อผู้ยืม.HeaderText = "ชื่อผู้ยืม"
-        Me.ชื่อผู้ยืม.Name = "ชื่อผู้ยืม"
-        Me.ชื่อผู้ยืม.ReadOnly = True
-        '
-        'รหัสหนังสือ
-        '
-        Me.รหัสหนังสือ.HeaderText = "รหัสหนังสือ"
-        Me.รหัสหนังสือ.Name = "รหัสหนังสือ"
-        Me.รหัสหนังสือ.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "ชื่อหนังสือ"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'ราคายืม
-        '
-        Me.ราคายืม.HeaderText = "ราคายืม"
-        Me.ราคายืม.Name = "ราคายืม"
-        Me.ราคายืม.ReadOnly = True
-        '
-        'กำหนดวันส่ง
-        '
-        Me.กำหนดวันส่ง.HeaderText = "กำหนดวันส่ง"
-        Me.กำหนดวันส่ง.Name = "กำหนดวันส่ง"
-        Me.กำหนดวันส่ง.ReadOnly = True
         '
         'Label1
         '
@@ -184,6 +141,63 @@ Partial Class borrowform
         Me.btnDel.Text = "ลบ"
         Me.btnDel.UseVisualStyleBackColor = True
         '
+        'No
+        '
+        Me.No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.No.FillWeight = 20.0!
+        Me.No.Frozen = True
+        Me.No.HeaderText = "No."
+        Me.No.Name = "No"
+        Me.No.ReadOnly = True
+        Me.No.Width = 49
+        '
+        'รหัสสมาชิก
+        '
+        Me.รหัสสมาชิก.FillWeight = 109.489!
+        Me.รหัสสมาชิก.HeaderText = "รหัสสมาชิก"
+        Me.รหัสสมาชิก.Name = "รหัสสมาชิก"
+        Me.รหัสสมาชิก.ReadOnly = True
+        '
+        'ชื่อผู้ยืม
+        '
+        Me.ชื่อผู้ยืม.FillWeight = 104.67!
+        Me.ชื่อผู้ยืม.HeaderText = "ชื่อผู้ยืม"
+        Me.ชื่อผู้ยืม.Name = "ชื่อผู้ยืม"
+        Me.ชื่อผู้ยืม.ReadOnly = True
+        Me.ชื่อผู้ยืม.Width = 96
+        '
+        'รหัสหนังสือ
+        '
+        Me.รหัสหนังสือ.FillWeight = 100.7304!
+        Me.รหัสหนังสือ.HeaderText = "รหัสหนังสือ"
+        Me.รหัสหนังสือ.Name = "รหัสหนังสือ"
+        Me.รหัสหนังสือ.ReadOnly = True
+        Me.รหัสหนังสือ.Width = 92
+        '
+        'Column3
+        '
+        Me.Column3.FillWeight = 97.50968!
+        Me.Column3.HeaderText = "ชื่อหนังสือ"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 89
+        '
+        'ราคายืม
+        '
+        Me.ราคายืม.FillWeight = 94.87669!
+        Me.ราคายืม.HeaderText = "ราคายืม"
+        Me.ราคายืม.Name = "ราคายืม"
+        Me.ราคายืม.ReadOnly = True
+        Me.ราคายืม.Width = 86
+        '
+        'กำหนดวันส่ง
+        '
+        Me.กำหนดวันส่ง.FillWeight = 92.72415!
+        Me.กำหนดวันส่ง.HeaderText = "กำหนดวันส่ง"
+        Me.กำหนดวันส่ง.Name = "กำหนดวันส่ง"
+        Me.กำหนดวันส่ง.ReadOnly = True
+        Me.กำหนดวันส่ง.Width = 85
+        '
         'borrowform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -218,6 +232,7 @@ Partial Class borrowform
     Friend WithEvents LbShowTime As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents LlTot As Label
+    Friend WithEvents btnDel As Button
     Friend WithEvents No As DataGridViewTextBoxColumn
     Friend WithEvents รหัสสมาชิก As DataGridViewTextBoxColumn
     Friend WithEvents ชื่อผู้ยืม As DataGridViewTextBoxColumn
@@ -225,5 +240,4 @@ Partial Class borrowform
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents ราคายืม As DataGridViewTextBoxColumn
     Friend WithEvents กำหนดวันส่ง As DataGridViewTextBoxColumn
-    Friend WithEvents btnDel As Button
 End Class

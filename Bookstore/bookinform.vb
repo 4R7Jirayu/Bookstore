@@ -7,6 +7,8 @@
         cdb.myObjconn.Open()
         intoComboTypeS()
 
+
+
     End Sub
 
     Private Sub btnBUpdate_Click(sender As Object, e As EventArgs) Handles btnBUpdate.Click
@@ -25,7 +27,7 @@
  WHERE [Book_ID] =  '" + txtBId.Text + "'"
             Dim cmd = New SqlClient.SqlCommand(cdb.mystr, cdb.myObjconn())
             cmd.ExecuteNonQuery()
-            MessageBox.Show("อัฟเดตข้อมูลได้สำเร็จ", "ผลการดำเนินการ")
+            MessageBox.Show("อัฟเดตข้อมูลสำเร็จ", "ผลการดำเนินการ", MessageBoxButtons.OK, MessageBoxIcon.Information)
             cdb.myObjconn.Close()
             btnBUpdate.Text = "อัปเดตข้อมูล"
         ElseIf btnBUpdate.Text = "อัปเดตข้อมูล" Then
@@ -40,7 +42,7 @@
         cdb.mystr += "VALUES ('" + txtBId.Text + "','" + txtBName.Text + "','" + txtBwrt.Text + "','" + txtBBrlP.Text + "','" + txtBCvP.Text + "','" + txtBLm.Text + "','" + txtBstt.Text + "','" + comboBtype.SelectedValue + "');"
 
         cdb.mycmd.ExecuteNonQuery()
-        MessageBox.Show("เพิ่มข้อมูลได้สำเร็จ", "ผลการดำเนินการ")
+        MessageBox.Show("เพิ่มข้อมูลสำเร็จ", "ผลการดำเนินการ", MessageBoxButtons.OK, MessageBoxIcon.Information)
         cdb.myObjconn().Close()
     End Sub
 
@@ -103,7 +105,7 @@
             While cdb.mydr.Read
                 comboSource.Add(cdb.mydr.Item(0), cdb.mydr.Item(1))
             End While
-            cdb.mydr.Close()
+            'cdb.mydr.Close()
         End If
         ' comboSource.Add(comboSource.Count + 1, "อื่นๆ")
         comboBtype.DataSource = New BindingSource(comboSource, Nothing)
@@ -113,25 +115,28 @@
         'cdb.myObjconn().Close()
     End Sub
     Private Sub showdata()
-        cdb.mystr = "SELECT * FROM [bookbd].[dbo].[Book]"
+        cdb.mystr = "SELECT        dbo.Book.Book_ID, dbo.Book.Book_Name, dbo.Book.Writer, dbo.Book_Type.BookType_Name, dbo.Book.BookBorrow_Price, dbo.Book.Book_Price, dbo.Book.LimitBorrow_Date, dbo.Book.Status
+FROM            dbo.Book INNER JOIN
+                         dbo.Book_Type ON dbo.Book.BookType_ID = dbo.Book_Type.BookType_ID"
         cdb.myda() = New SqlClient.SqlDataAdapter(cdb.mystr, cdb.myObjconn)
         cdb.myds() = New DataSet
         cdb.myda().Fill(cdb.myds(), "Book")
 
         DataGridViewShowinfoBook.DataMember = "Book"
         DataGridViewShowinfoBook.DataSource = cdb.myds()
+        setheaderGridview()
         cdb.myObjconn().Close()
     End Sub
     Private Sub setheaderGridview()
-        DataGridViewShowinfoBook.Columns(0).HeaderText = "No."
-        DataGridViewShowinfoBook.Columns(1).HeaderText = "ไอดีหนังสือ"
-        DataGridViewShowinfoBook.Columns(3).HeaderText = "ชื่อหนังสือ"
-        DataGridViewShowinfoBook.Columns(4).HeaderText = "ประเภทหนังสือ"
-        DataGridViewShowinfoBook.Columns(5).HeaderText = "ผู้เขียน"
-        DataGridViewShowinfoBook.Columns(6).HeaderText = "ราคายืม"
-        DataGridViewShowinfoBook.Columns(7).HeaderText = "ราคาปก"
-        DataGridViewShowinfoBook.Columns(8).HeaderText = "ยืมได้"
-        DataGridViewShowinfoBook.Columns(9).HeaderText = "สถานะ"
+        '  DataGridViewShowinfoBook.Columns(0).HeaderText = "No."
+        DataGridViewShowinfoBook.Columns(0).HeaderText = "ไอดีหนังสือ"
+        DataGridViewShowinfoBook.Columns(1).HeaderText = "ชื่อหนังสือ"
+        DataGridViewShowinfoBook.Columns(3).HeaderText = "ประเภทหนังสือ"
+        DataGridViewShowinfoBook.Columns(2).HeaderText = "ผู้เขียน"
+        DataGridViewShowinfoBook.Columns(4).HeaderText = "ราคายืม"
+        DataGridViewShowinfoBook.Columns(5).HeaderText = "ราคาปก"
+        DataGridViewShowinfoBook.Columns(6).HeaderText = "ยืมได้"
+        DataGridViewShowinfoBook.Columns(7).HeaderText = "สถานะ"
     End Sub
 
     Private Sub in2txt()
@@ -155,7 +160,7 @@ FROM            dbo.Book INNER JOIN
 
             End While
         Else
-            MessageBox.Show("ไม่มีข้อมูล", "ผลการดำเนินการ")
+            MessageBox.Show("ไม่พบข้อมูล", "", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
         cdb.mydr.Close()
     End Sub

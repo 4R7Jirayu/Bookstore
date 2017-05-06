@@ -33,14 +33,14 @@ Public Class borrowform
             DGinsertBorr()
             DGUpdateBook()
 
-            MessageBox.Show("การยืมสำเร็จ")
+            MessageBox.Show("การยืมสำเร็จ", "ผลการดำเนินงาน", MessageBoxButtons.OK, MessageBoxIcon.Information)
             totalBRP = 0
             txtMemb.Clear()
             txtBookID.Clear()
             DataGVList.Rows.Clear()
             LlTot.Text = "0 บาท"
         Catch ex As Exception
-            MessageBox.Show("พบปัญหา" + ex.ToString)
+            MessageBox.Show("พบปัญหา" + ex.ToString, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
 
     End Sub
@@ -50,7 +50,7 @@ Public Class borrowform
         Dim cmd As New Data.SqlClient.SqlCommand
 
         connection.ConnectionString = cdb.myStrconn()
-        cmd.CommandText = "INSERT INTO [dbo].[bill] ([Bdate],[SSN],[money],[type]) VALUES (@TBdate,@BSSN,@Bmoney,'B') ;"
+        cmd.CommandText = "INSERT INTO [dbo].[bill] ([Bdate],[SSN],[money],[type]) VALUES (@TBdate,@BSSN,@Bmoney,'ค่ายืม') ;"
 
         cmd.Parameters.Add("@TBdate", SqlDbType.DateTime)
         cmd.Parameters.Add("@BSSN", SqlDbType.VarChar)
@@ -139,15 +139,15 @@ Public Class borrowform
         Else
             checkadd = False
             If Not (checkshowi) Then
-                MessageBox.Show("ไม่มีข้อมูล", "ไม่พบสมาชิก")
+                MessageBox.Show("ไม่พบข้อมูลสมาชิก", "ผลการดำเนินการ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 checkshowi = True
                 Return "0"
             End If
         End If
         cdb.mydr.Close()
         cdb.myObjconn.Close()
-
     End Function
+
     Private Function getValueFBook(ByVal sKey As String) As String
         cdb.mystr = "Select [Book_Name],[BookBorrow_Price],[LimitBorrow_Date],[Book_ID],[Status] FROM [bookbd].[dbo].[Book] WHERE [Book].[Book_ID] = '" + txtBookID.Text + "';"
         cdb.myObjconn = New SqlConnection(cdb.myStrconn)
@@ -180,7 +180,7 @@ Public Class borrowform
         Else
                 checkadd = False
             If Not (checkshowi) Then
-                MessageBox.Show("ไม่มีข้อมูล", "ไม่พบหนังสือ")
+                MessageBox.Show("ไม่พบข้อมูลหนังสือ", "ผลการดำเนินการ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 checkshowi = True
                 Return "0"
             End If

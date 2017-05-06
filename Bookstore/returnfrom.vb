@@ -20,7 +20,7 @@
                 txtReDate.Text = cdb.mydr.Item(2)
             End While
         Else
-            MessageBox.Show("ไม่มีข้อมูล", "ผลการดำเนินการ")
+            MessageBox.Show("ไม่พบข้อมูล", "ผลการดำเนินการ",MessageBoxButtons.OK,MessageBoxIcon.Warning)
         End If
         cdb.mydr.Close()
         cdb.myObjconn().Close()
@@ -106,7 +106,7 @@
         Dim cmd As New Data.SqlClient.SqlCommand
 
         connection.ConnectionString = cdb.myStrconn()
-        cmd.CommandText = "INSERT INTO [dbo].[bill] ([Bdate],[SSN],[money],[type]) VALUES (@TBdate,@BSSN,@Bmoney,'F') ;"
+        cmd.CommandText = "INSERT INTO [dbo].[bill] ([Bdate],[SSN],[money],[type]) VALUES (@TBdate,@BSSN,@Bmoney,'ค่าปรับ') ;"
         cmd.Parameters.Add("@TBdate", SqlDbType.DateTime)
         cmd.Parameters.Add("@BSSN", SqlDbType.VarChar)
         cmd.Parameters.Add("@Bmoney", SqlDbType.Int)
@@ -124,22 +124,35 @@
     End Sub
 
     Private Sub showdata()
-        cdb.mystr = "SELECT dbo.BorrowReturn.Borrow_ID, dbo.BorrowReturn.Borrow_Date, dbo.BorrowReturn.Return_Date, dbo.BorrowReturn.SSN, dbo.BorrowReturn.Book_ID, dbo.Book.Status
-                     FROM  dbo.Book INNER JOIN dbo.BorrowReturn ON dbo.Book.Book_ID = dbo.BorrowReturn.Book_ID WHERE dbo.BorrowReturn.SSN = '" + txtSkey.Text + "' and dbo.book.Status <> 'yes'"
+        cdb.mystr = "SELECT        dbo.BorrowReturn.Borrow_ID, dbo.BorrowReturn.Borrow_Date, dbo.BorrowReturn.Return_Date, dbo.Member.FName, dbo.Book.Book_Name
+FROM            dbo.BorrowReturn INNER JOIN
+                         dbo.Member ON dbo.BorrowReturn.SSN = dbo.Member.SSN INNER JOIN
+                         dbo.Book ON dbo.BorrowReturn.Book_ID = dbo.Book.Book_ID WHERE dbo.BorrowReturn.SSN = '" + txtSkey.Text + "' and dbo.book.Status <> 'yes'"
         cdb.myObjconn().Open()
         cdb.myda() = New SqlClient.SqlDataAdapter(cdb.mystr, cdb.myObjconn)
         cdb.myds() = New DataSet
+
         cdb.myda().Fill(cdb.myds(), "Book")
 
         DataGridView.DataMember = "Book"
         DataGridView.DataSource = cdb.myds()
         cdb.myObjconn().Close()
+
+        DataGridView.Columns(0).HeaderText = "รหัสการยืม"
+        DataGridView.Columns(1).HeaderText = "วันที่ยืม"
+        DataGridView.Columns(2).HeaderText = "กำหนดวันคืน"
+        DataGridView.Columns(3).HeaderText = "ชื่อผู้ยืม"
+        DataGridView.Columns(4).HeaderText = "ชื่อหนังสือ"
+
+        If DataGridView.RowCount = 0 Then
+            MessageBox.Show("ไม่พบข้อมูล", "ผลดำเนินการ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
     End Sub
 
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         If CheckBox.CheckState = CheckState.Unchecked Then
-            MessageBox.Show("กรุณากดยืนยันการคืน")
+            MessageBox.Show("กรุณากดยืนยันการคืน", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
             txtFell.Text = calFee(CDate(txtReDate.Text), Date.Now)
             totalFee += CInt(txtFell.Text)
@@ -147,7 +160,7 @@
             If CheckBox.Checked Then
                 DGUpdateBook()
                 DGUpdatefee()
-                MessageBox.Show("คืนสำเร็จ")
+                MessageBox.Show("คืนสำเร็จ", "ผลการดำงานงาน", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 CheckBox.CheckState = CheckState.Unchecked
                 showdata()
                 ctxt()

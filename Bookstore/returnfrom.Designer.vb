@@ -123,7 +123,6 @@ Partial Class returnfrom
         '
         Me.txtReDate.Location = New System.Drawing.Point(260, 22)
         Me.txtReDate.Name = "txtReDate"
-        Me.txtReDate.ReadOnly = True
         Me.txtReDate.Size = New System.Drawing.Size(100, 20)
         Me.txtReDate.TabIndex = 8
         '
@@ -210,6 +209,7 @@ Partial Class returnfrom
         '
         Me.DataGridView.AllowUserToAddRows = False
         Me.DataGridView.AllowUserToDeleteRows = False
+        Me.DataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView.Location = New System.Drawing.Point(33, 180)
         Me.DataGridView.Name = "DataGridView"
